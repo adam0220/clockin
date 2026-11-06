@@ -209,6 +209,63 @@ details.log summary{cursor:pointer;color:var(--lime);font-size:12px;margin-top:1
 .c-line.zomb .c-who{color:#8db07a}.c-line.zomb .c-text{color:#8db07a;letter-spacing:3px}
 #cine .d-tap{text-align:center}
 #cine.ready .d-tap{opacity:1;animation:blink 1s steps(2) infinite}
+
+/* ---------- 이전 대사 보기 ---------- */
+.back{position:absolute;left:10px;bottom:4px;font-size:11px;color:var(--dim);background:none;border:0;padding:2px 4px;cursor:pointer}
+.back:active{color:var(--lime)}
+.back[hidden]{display:none}
+#review{position:absolute;inset:-3px;z-index:4;background:#0c0f1a;border:3px solid var(--lime);padding:10px 14px 22px;line-height:1.7}
+#review[hidden]{display:none}
+.rv-eyebrow{font-size:11px;color:var(--lime);margin-bottom:4px}
+.rv-sp{display:flex;gap:8px;align-items:baseline;margin-bottom:3px}
+.rv-sp .nm{color:var(--c);font-size:14px}
+.rv-sp .rl{color:var(--dim);font-size:11px}
+.rv-text{font-size:15px;color:var(--ink)}
+.rv-text.narr{color:#c9c6bb}
+.rv-tap{position:absolute;right:12px;bottom:5px;font-size:11px;color:var(--lime);animation:blink 1s steps(2) infinite}
+
+/* ---------- 미니게임 ---------- */
+#mini{position:absolute;inset:0;z-index:22;background:#05060b;display:flex;flex-direction:column;padding:calc(8px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom))}
+#mini[hidden]{display:none}
+.m-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:2px 2px 8px;font-size:12px}
+.m-title{font-size:16px;color:var(--lime)}
+.m-info{color:var(--ink);white-space:nowrap}
+.m-red{color:var(--red);font-weight:400}
+.m-lime{color:var(--lime);font-weight:400}
+.m-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.m-stage canvas{display:block;width:min(100%,calc((100dvh - 130px) * 2 / 3));height:auto;aspect-ratio:2/3;image-rendering:pixelated;image-rendering:crisp-edges;
+  border:3px solid #000;box-shadow:0 0 0 2px #1e2438;touch-action:none}
+.m-stage canvas.m-hit{animation:mHit .35s steps(3)}
+@keyframes mHit{0%{transform:translate(-3px,1px);filter:brightness(1.6) sepia(1) hue-rotate(-50deg) saturate(5)}100%{transform:none;filter:none}}
+.m-hint{font-size:11px;color:var(--dim);text-align:center;padding-top:8px;line-height:1.5;word-break:keep-all}
+.m-card{position:absolute;left:8px;right:8px;top:50%;transform:translateY(-50%);background:var(--panel);border:3px solid #000;
+  box-shadow:inset 3px 3px 0 #252c45,6px 6px 0 rgba(0,0,0,.6);padding:16px;font-size:13px;line-height:1.7;word-break:keep-all;max-height:100%;overflow-y:auto}
+.m-card[hidden]{display:none}
+.m-card h3{font-size:20px;font-weight:400;margin:2px 0 8px}
+.m-card ul{padding-left:18px;margin:8px 0 12px;color:#d8d5ca}
+.m-card p{margin:4px 0}
+.m-card .btn{margin-top:12px;width:100%}
+.m-eyebrow{font-family:'Silkscreen',monospace;font-size:11px;color:var(--lime);letter-spacing:2px}
+.m-sq{color:var(--dim);font-size:12px}
+
+/* ---------- 엔딩 크레딧 ---------- */
+#cine.credits{padding:0;align-items:stretch;flex-direction:column}
+.cr-wrap{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
+.cr-roll{position:absolute;left:0;right:0;top:0;padding:0 24px;will-change:transform}
+.cr-title{text-align:center;font-family:'Silkscreen',monospace;color:var(--lime);font-size:12px;letter-spacing:3px;margin-bottom:28px}
+.cr-title b{display:block;font-family:'Galmuri11',system-ui,sans-serif;font-weight:400;font-size:24px;color:#f4f1e8;letter-spacing:0;margin-top:8px}
+.cr-sec{text-align:center;font-size:12px;color:var(--dim);letter-spacing:2px;margin:26px 0 16px}
+.cr-sec::before,.cr-sec::after{content:' — '}
+.cr-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
+.cr-row canvas{flex:none;width:32px;height:44px;image-rendering:pixelated;image-rendering:crisp-edges}
+.cr-nm{font-size:16px;color:#f4f1e8}
+.cr-nm::before{content:'';display:inline-block;width:8px;height:8px;background:var(--c);margin-right:7px;vertical-align:2px}
+.cr-nm span{font-size:11px;color:var(--dim);margin-left:8px}
+.cr-ln{font-size:13px;line-height:1.6;color:#c9c6bb;margin-top:3px;word-break:keep-all}
+.cr-fallen{text-align:center;font-size:13px;line-height:2;color:#ff8a95;word-break:keep-all}
+.cr-end{text-align:center;margin:60px 0 40px;font-size:18px;color:#f4f1e8}
+.cr-end span{display:block;font-family:'Silkscreen',monospace;font-size:10px;color:var(--lime);letter-spacing:2px;margin-top:8px}
+#cine.credits .d-tap{text-align:center;padding:10px 0 calc(14px + env(safe-area-inset-bottom))}
 </style>
 </head>
 <body>
@@ -235,6 +292,8 @@ details.log summary{cursor:pointer;color:var(--lime);font-size:12px;margin-top:1
       <div id="speaker" hidden></div>
       <div id="text"></div>
       <div id="next">▼</div>
+      <button id="backBtn" class="back" hidden>◀ 이전</button>
+      <div id="review" hidden></div>
     </div>
     <div id="choices"></div>
   </section>
@@ -242,6 +301,7 @@ details.log summary{cursor:pointer;color:var(--lime);font-size:12px;margin-top:1
   <div id="overlay" hidden></div>
   <div id="death" hidden></div>
   <div id="cine" hidden></div>
+  <div id="mini" hidden></div>
 </div>
 
 <script>/* js/characters.js */
@@ -305,7 +365,7 @@ window.CHARS = {
   gio:       { name: '지오',     dept: 'dev',   role: '디자이너', hair: '#7a3a8a', style: 'pony', npc: true },
 
   /* ---- 외부 생존자 ---- */
-  garrett:   { name: '가렛',     dept: 'out',   role: '외부 생존자', hair: '#3a2a20', style: 'messy', big: true, npc: true, shirt: '#6e5a44' },
+  zed:       { name: '제드',     dept: 'out',   role: '외부 생존자', hair: '#c9a060', style: 'side', npc: true, shirt: '#3b3f4a' },
 };
 
 window.CORE = Object.keys(window.CHARS).filter(k => !window.CHARS[k].npc);
@@ -1086,7 +1146,7 @@ window.SFX = (() => {
 
   /* ------------------------------------------------------------------ */
   S.days.push({
-    day: 1, title: '대탈주', key: true, choices: 2, bgm: 'calm',
+    day: 1, title: '핵폭탄', key: true, choices: 2, bgm: 'calm',
     env: { lights: true, sky: 'day', time: 'day', emergency: false },
     preview: '평범한 화요일이에요. 3시에 경영회의가 있고, 자료는 아직이에요',
     teaser: G => G.flags.dante_isolated
@@ -1469,11 +1529,11 @@ window.SFX = (() => {
             { narr: '켄은 한참 동안 손을 씻었다. 아무도 말을 걸지 못했다' },
             { say: 'min', text: '…다음엔 우리 중 누구 차례예요?' },
           ] },
-        { label: '치료를 시도한다 (레나·제나)', hint: '성공하면 단서, 실패하면…',
+        { label: '치료를 시도한다 (레나·제나)', hint: G => `실내 피폭이 40 이하여야 해요 (지금 ${Math.round(G.stats.rad)})`,
           when: G => G.alive.lena,
           branch: G => {
-            let p = .5 + (G.trust.lena >= 6 ? .2 : 0) - (G.stats.rad > 40 ? .2 : 0) + (inf(G) === 'luka' ? .1 : 0);
-            return Math.random() < p ? 'ok' : 'fail';
+            const ok = G.trust.lena >= 4 && G.stats.rad <= 40;
+            return ok ? 'ok' : 'fail';
           },
           outcomes: {
             ok: { tag: 'gain', set: { first_infected_action: 'treat', cure_clue: true }, effects: { food: -4 },
@@ -1650,6 +1710,15 @@ window.SFX = (() => {
             } },
         ] } },
       { env: { time: 'night' }, bgm: 'night' },
+      // 미니게임: 돌아온 동료들
+      { bg: 'cctv' },
+      { narr: '밤 11시. CAM 01~04. 건물 입구마다 사람 그림자가 하나씩 붙어 섰다' },
+      { say: pick('jaemin', 'bill', 'rose', 'phil'), text: '…저 사원증, 우리 회사 거예요' },
+      { bg: 'office', cast: 'all' },
+      { say: 'christine', text: '제인? 클라크…? Day 1에 계단으로 내려간 애들이잖아요' },
+      { say: pick('ken', 'bill', 'chad'), text: '이름 부르지 마요! 이젠… 아니에요' },
+      { say: 'rick', text: '입구마다 한 명씩 붙어요. 문 열리면 안 돼요!' },
+      { mini: 'colleagues' },
       { if: G => G.flags.noise_rule && G.alive.luka, then: [
         { bg: 'office', cast: ['luka', 'rose'] },
         { narr: '새벽 2시. 창가에서 작은 불빛이 깜빡였다' },
@@ -1693,7 +1762,7 @@ window.SFX = (() => {
                     { say: 'ken', text: G => (G.flags.shelter_real ? '대피소, 진짜 있어요. 철문에 군 마크도 있고 경비도 서 있어요' : '대피소요? 문은 열려 있는데… 안에 사람이 없어요. 스피커만 혼자 떠들어요') },
                     { say: 'ken', text: '오는 길에 약국에서 비타민 좀 챙겼어요' },
                   ] },
-                { label: '한나', hint: '발이 빨라요', when: G => G.alive.hanna, branch: () => (Math.random() < .65 ? 'dead' : 'ok'),
+                { label: '한나', hint: '발이 빨라요 · 대표를 믿으면(신뢰 6 이상) 이어폰을 빼고 가요', when: G => G.alive.hanna, branch: G => (G.trust.hanna >= 6 ? 'ok' : 'dead'),
                   outcomes: {
                     dead: { tag: 'death', set: { scout_member: 'hanna' }, note: '정찰대가 돌아오지 못했어요', then: [
                       { say: 'hanna', text: '걱정 마요. 이어폰 한쪽은 빼고 갈게요' },
@@ -1707,7 +1776,7 @@ window.SFX = (() => {
                       { say: 'hanna', text: G => (G.flags.shelter_real ? '진짜예요. 문 앞에 군인도 있었어요' : '아무도 없어요. 녹음된 방송만 돌아가요') },
                     ] },
                   } },
-                { label: '루카', hint: '바깥 지리를 잘 알아요', when: G => G.alive.luka, branch: () => (Math.random() < .65 ? 'dead' : 'ok'),
+                { label: '루카', hint: '바깥 지리를 잘 알아요 · 대표를 믿으면(신뢰 6 이상) 담배를 참아요', when: G => G.alive.luka, branch: G => (G.trust.luka >= 6 ? 'ok' : 'dead'),
                   outcomes: {
                     dead: { tag: 'death', set: { scout_member: 'luka' }, note: '담배 불빛 하나가 어둠 속에서 꺼졌어요', then: [
                       { say: 'luka', text: '바깥 공기 좀 마시고 오죠. 담배도 좀 구해 오고' },
@@ -1823,21 +1892,33 @@ window.SFX = (() => {
         { narr: '밤 11시. 천둥이 쳤다. 그리고 회의실 문 경첩이 떨어져 나갔다', fx: 'shake', dur: 600, sfx: 'growl' },
         { unhide: inf, cast: G => [...Game.present(G).filter(i => i !== inf(G)), inf(G) + ':zombie'] },
         { say: 'jenny', text: '나왔어요! {inf:가} 나왔어요!', sfx: 'scream', effects: { noise: 10 } },
-        setV('v', G => [inf(G), 'ken']),
-        { kill: G => G.flags.v, cause: '탈출한 감염자에게 물림', kind: 'bite' },
-        { narr: '{dead:가} 가장 먼저 쓰러졌다' },
-        { if: G => G.alive.ken, then: [
-          { say: 'ken', text: '이리 와! 나 여기 있어!' },
-          { fx: 'hit' },
-          { kill: inf, cause: '변이 후 제압', kind: 'zombie' },
-          { set: { ken_scratched: true, infected_inside: false } },
-          { narr: '켄의 팔뚝에 붉은 줄 세 개가 그어져 있었다' },
-        ], else: [
-          { say: pick('min', 'adam', 'christine', 'rick'), text: '회의실로! 다시 밀어 넣어요!' },
-          { fx: 'hit' },
-          { kill: inf, cause: '변이 후 제압', kind: 'zombie' },
-          { set: { infected_inside: false } },
-        ] },
+        { choice: {
+          prompt: '회의실을 부수고 나온 {inf}',
+          options: [
+            { label: '켄이 맨손으로 막는다', hint: '켄이 다칠 수 있어요', when: G => G.alive.ken, tag: 'keep',
+              set: { ken_scratched: true, infected_inside: false }, note: '아무도 죽지 않았어요. 켄의 팔에 상처가 남았어요',
+              then: [
+                { say: 'ken', text: '이리 와! 나 여기 있어!' },
+                { fx: 'hit' },
+                { kill: inf, cause: '변이 후 제압', kind: 'zombie' },
+                { narr: '켄의 팔뚝에 붉은 줄 세 개가 그어져 있었다' },
+              ] },
+            { label: '다 같이 흩어져 도망친다', tag: 'death', set: { infected_inside: false }, note: '도망치는 사이 한 명이 붙잡혔어요',
+              then: [
+                setV('v', G => [inf(G), 'ken']),
+                { kill: G => G.flags.v, cause: '탈출한 감염자에게 물림', kind: 'bite' },
+                { narr: '{dead:가} 가장 먼저 쓰러졌다' },
+                { say: pick('min', 'adam', 'christine', 'rick'), text: '회의실로! 다시 밀어 넣어요!' },
+                { fx: 'hit' },
+                { kill: inf, cause: '변이 후 제압', kind: 'zombie' },
+              ] },
+            { label: '소화기를 뿌려 회의실로 다시 몰아넣는다', hint: '전력 -10 · 소음 +10', tag: 'keep', effects: { power: -10, noise: 10 },
+              note: '{inf:는} 다시 회의실에 갇혔어요. 긁는 소리는 계속돼요',
+              then: [
+                { narr: '하얀 분말 속에서 {inf:가} 뒷걸음질 쳤다. 문이 다시 닫혔다' },
+                { hide: inf, cast: 'all' },
+              ] },
+          ] } },
       ] },
     ],
   });
@@ -1896,8 +1977,8 @@ window.SFX = (() => {
               { kill: G => G.flags.pt, cause: '격리실에서 변이', kind: 'zombie', last: '문 잠그는 소리… 생각보다 안 무섭네요' },
               { narr: '회의실 문에는 누군가 「출근 중」이라고 써 붙여 두었다' },
             ] },
-          { label: '조엘팀 전원 검사 후 들인다', hint: '50%의 확률로 스스로 회복해요', when: G => G.flags.ops_team,
-            branch: () => (Math.random() < .5 ? 'live' : 'die'),
+          { label: '조엘팀 전원 검사 후 들인다', hint: G => `피폭이 50 미만이면 스스로 회복해요 (지금 ${Math.round(G.stats.rad)})`, when: G => G.flags.ops_team,
+            branch: G => (G.stats.rad < 50 ? 'live' : 'die'),
             outcomes: {
               live: { tag: 'keep', set: { hongje_isolated: true }, note: `이든의 상처를 일찍 찾아냈어요. {pt:는} 스스로 열을 이겨냈어요`,
                 then: [
@@ -1914,8 +1995,8 @@ window.SFX = (() => {
                   { kill: G => G.flags.pt, cause: '고열 끝에 숨짐', kind: 'farewell' },
                 ] },
             } },
-          { label: '치료 단서로 버텨본다 (진정제·수액)', when: G => G.flags.cure_clue && !G.flags.medicine,
-            branch: () => (Math.random() < .6 ? 'ok' : 'fail'),
+          { label: '치료 단서로 버텨본다 (진정제·수액)', hint: '제나가 살아 있어야 기록대로 투약할 수 있어요', when: G => G.flags.cure_clue && !G.flags.medicine,
+            branch: G => (G.alive.jena ? 'ok' : 'fail'),
             outcomes: {
               ok: { tag: 'gain', note: 'Day 5의 기록이 사람을 살렸어요', then: [
                 { say: 'jena', text: 'Day 5 투약 기록대로 갑니다. 2mg, 네 시간 간격' },
@@ -1926,8 +2007,8 @@ window.SFX = (() => {
                 { kill: G => G.flags.pt, cause: '치료 중 변이', kind: 'zombie' },
               ] },
             } },
-          { label: '곁에서 밤새 간호한다', when: G => !G.flags.medicine && !G.flags.ops_team,
-            branch: () => (Math.random() < .4 ? 'ok' : 'fail'),
+          { label: '곁에서 밤새 간호한다', hint: G => `사기가 40 이상이면 다 같이 버텨낼 수 있어요 (지금 ${Math.round(G.stats.morale)})`, when: G => !G.flags.medicine && !G.flags.ops_team,
+            branch: G => (G.stats.morale >= 40 ? 'ok' : 'fail'),
             outcomes: {
               ok: { tag: 'keep', effects: { morale: 4 }, note: '기적처럼 열이 내렸어요', then: [{ narr: `새벽 5시. {pt:가} 물을 찾았다` }] },
               fail: { tag: 'death', effects: { morale: -4 }, note: '약 없이 버티기엔 너무 높은 열이었어요', then: [
@@ -1945,29 +2026,69 @@ window.SFX = (() => {
     preview: '확성기 소리가 들려요. 누군가 이 건물을 원해요',
     teaser: G => (G.flags.aaron_roy ? '아론의 무리는 물러났다. 길 끝에서 누군가와 만나는 게 보였다' : '1층 로비에 낯선 발자국이 남았다'),
     steps: [
+      // 이든: 소매를 계속 내리는 모습 → 확인할지 말지는 플레이어의 선택
       { if: G => G.flags.hongje_turn && G.alive.hongje, then: [
-        { bg: 'office', env: { time: 'night' }, bgm: 'night', cast: G => [...['harvey', 'chad', 'sunny'].filter(id => G.alive[id]), 'hongje:zombie'] },
-        { narr: '새벽 4시. 운영팀이 자던 탕비실 쪽에서 비명이 터졌다', sfx: 'scream', fx: 'shake', dur: 500 },
-        setV('v', [], ['sunny', 'harvey', 'chad']),
-        { kill: G => G.flags.v, cause: '변이한 이든에게 물림', kind: 'bite' },
-        { say: pick('chad', 'joel', 'ken'), text: '이든아! 정신 차려, 이든아!' },
-        { fx: 'hit' },
-        { kill: 'hongje', cause: '변이 후 제압', kind: 'zombie', last: '…추워, 형' },
+        { bg: 'pantry', env: { time: 'night' }, bgm: 'night', cast: G => [...['harvey', 'chad', 'sunny'].filter(id => G.alive[id]), 'hongje'] },
+        { narr: '밤 11시. 이든이 탕비실 구석에서 소매를 내리고, 또 내렸다' },
+        { say: 'hongje', text: '…저 진짜 괜찮아요. 그냥 추워서요' },
+        { choice: {
+          prompt: '자꾸 소매를 내리는 이든',
+          options: [
+            { label: '팔을 걷어 확인한다', tag: 'keep', trust: { hongje: -1 }, set: { hongje_isolated: true, hongje_turn: false },
+              note: '물린 자국을 찾아 격리했어요',
+              then: [
+                { say: pick('jena', 'lena', 'christine'), text: '이든, 미안해. 팔 좀 볼게. …물린 자국이에요' },
+                { hide: 'hongje' },
+                { say: 'hongje', text: '숨기려던 건 아니었어요… 무서워서요' },
+              ] },
+            { label: '믿고 넘어간다', hint: '사람을 의심하고 싶지 않아요', tag: 'death',
+              note: '믿음의 대가는 컸어요',
+              then: [
+                { say: 'rick', text: '알았어요. 푹 자요' },
+                { cast: G => [...['harvey', 'chad', 'sunny'].filter(id => G.alive[id]), 'hongje:zombie'] },
+                { narr: '새벽 4시. 운영팀이 자던 탕비실 쪽에서 비명이 터졌다', sfx: 'scream', fx: 'shake', dur: 500 },
+                setV('v', [], ['sunny', 'harvey', 'chad']),
+                { kill: G => G.flags.v, cause: '변이한 이든에게 물림', kind: 'bite' },
+                { say: pick('chad', 'joel', 'ken'), text: '이든아! 정신 차려, 이든아!' },
+                { fx: 'hit' },
+                { kill: 'hongje', cause: '변이 후 제압', kind: 'zombie', last: '…추워, 형' },
+              ] },
+          ] } },
         { env: { time: 'day' }, bgm: 'tense' },
       ] },
       { if: G => G.flags.hongje_isolated && G.alive.hongje, then: [
-        { bg: 'meeting', cast: ['hongje', 'sunny'] },
+        { bg: 'meeting', cast: G => ['hongje', ...(G.alive.sunny ? ['sunny'] : [])] },
         { narr: '새벽. 격리실 유리 너머로 이든이 웃어 보였다' },
         { say: 'sunny', text: '이든아, 조금만 버텨. 대피소 가면 약 있대' },
-        { say: 'hongje', text: '써니 누나, 나 먼저 퇴근할게' },
-        { kill: 'hongje', cause: '격리실에서 조용히 변이', kind: 'farewell', last: '먼저 퇴근할게' },
+        { choice: {
+          prompt: '격리실의 이든',
+          options: [
+            { label: '남은 약을 이든에게 쓴다', hint: '약 1개 소모', when: G => (G.flags.medicine || 0) >= 1, tag: 'gain',
+              do: G => { G.flags.medicine -= 1; }, note: '이든의 열이 내렸어요. 대신 약이 줄었어요',
+              then: [
+                { narr: '사흘째 되던 날, 이든이 격리실 유리를 똑똑 두드렸다' },
+                { unhide: 'hongje' },
+                { say: 'hongje', text: '…저 출근해도 돼요?' },
+              ] },
+            { label: '곁에서 조용히 보내준다', tag: 'death', effects: { morale: -3 },
+              note: '이든과 작별했어요',
+              then: [
+                { say: 'hongje', text: '써니 누나, 나 먼저 퇴근할게' },
+                { kill: 'hongje', cause: '격리실에서 조용히 변이', kind: 'farewell', last: '먼저 퇴근할게' },
+              ] },
+          ] } },
       ] },
-      { bg: 'lobby', cast: ['aaron', 'garrett'] },
+      { bg: 'lobby', cast: ['aaron', 'zed'] },
       { narr: '오후 2시. 확성기 소리가 건물 벽을 때렸다', sfx: 'beep' },
       { say: 'aaron', text: '이 건물의 점유권을 주장합니다. 민법 제192조, 사실상의 지배…' },
       { say: 'christine', text: '아론, 지금 민법 얘기예요?' },
       { say: 'aaron', text: '세상이 망해도 법은 남아야죠. 저희는 열두 명입니다. 공간의 절반을 요구합니다' },
-      { say: 'garrett', text: '말 길게 할 거 없어. 문 열어' },
+      { say: 'zed', text: '말 길게 할 거 없어. 문 열어' },
+      { say: 'zed', text: '…잠깐. 저기 창가. 제니? 영업부 제니 맞죠?', when: G => G.alive.jenny },
+      { say: 'zed', text: '저 1층 카페에서 일했어요. 매일 아침 아이스 바닐라라떼, 샷 추가. 이름까지 외웠는데', when: G => G.alive.jenny },
+      { say: 'jenny', text: '…저 그 카페 한 번밖에 안 갔는데요?' },
+      { say: 'zed', text: '그 한 번이요. 그날 웃어줬잖아요. 그래서 여기까지 온 거예요', when: G => G.alive.jenny, set: { zed_jenny: true } },
+      { say: 'adam', text: '(속삭이며) 종말에 고백이 나오네…' },
       { choice: {
         prompt: '아론과 외부 무리',
         options: [
@@ -1980,14 +2101,14 @@ window.SFX = (() => {
                   { say: 'tae', text: '절반은 못 드려요. 대신 3층을 드리죠. 그리고 우리가 가진 정보도요' },
                   { say: 'aaron', text: '…서면으로 남겨주시면 받겠습니다' },
                   { say: 'tae', text: '종말에도 계약서는 필요하네요' },
-                  { join: ['aaron', 'garrett'] },
+                  { join: ['aaron', 'zed'] },
                   { bg: 'office', cast: 'all' },
                 ] },
               fail: { tag: 'death', set: { negotiation_result: 'fail', aaron_roy: true },
                 note: '협상이 깨지고 몸싸움이 벌어졌어요',
                 then: [
                   { say: 'tae', text: G => (G.flags.tae_broken ? '…대표님 말대로 하자고요? 문 안 열어준 사람 말대로?' : '조건부터 말씀드리죠…') },
-                  { say: 'garrett', text: '시간 끌지 마!' },
+                  { say: 'zed', text: '시간 끌지 마!' },
                   { fx: 'hit' },
                   setV('v', ['tae']),
                   { kill: G => G.flags.v, cause: '외부 무리와 충돌', kind: 'fight' },
@@ -1995,14 +2116,41 @@ window.SFX = (() => {
                   { narr: '아론의 무리는 물러났다. {dead}의 자리는 비었다' },
                 ] },
             } },
+          { label: '제니에게 대화를 맡긴다', hint: '제드가 제니 말이라면 들을지도 몰라요', when: G => G.flags.zed_jenny && G.alive.jenny,
+            branch: G => (G.trust.jenny >= 5 ? 'ok' : 'fail'),
+            outcomes: {
+              ok: { tag: 'gain', effects: { morale: 6 }, trust: { jenny: 1 }, set: { negotiation_result: 'zed_only', zed_joined: true, aaron_roy: true },
+                note: '제드가 무리를 떠나 합류했어요. 아론은 혼자 물러났어요',
+                then: [
+                  { say: 'jenny', text: '(유리문 앞에 서서) 저기요… 제드? 우리 지금 진짜 힘들어요. 싸우지 말아줘요' },
+                  { say: 'zed', text: '…네. 안 싸워요. 제니가 그렇게 말하면' },
+                  { say: 'aaron', text: '제드! 계약 위반이야!' },
+                  { say: 'zed', text: '계약서 안 썼잖아요, 아론' },
+                  { join: ['zed'] },
+                  { bg: 'office', cast: 'all' },
+                  { say: 'jenny', text: '(작게) …바닐라라떼는 진짜 좋아하긴 했어요' },
+                ] },
+              fail: { tag: 'death', set: { negotiation_result: 'fail', aaron_roy: true },
+                note: '제니는 문 앞에서 얼어붙었어요. 아론의 무리가 밀고 들어왔어요',
+                then: [
+                  { say: 'jenny', text: '저, 저기… 그러니까…' },
+                  { say: 'aaron', text: '시간 끌기네요. 들어가죠' },
+                  { fx: 'hit' },
+                  setV('v', ['jenny', 'zed']),
+                  { kill: G => G.flags.v, cause: '외부 무리와 충돌', kind: 'fight' },
+                  { say: 'zed', text: '(끌려가며) 제니! 다치지 마요!' },
+                  { bg: 'office', cast: 'all' },
+                ] },
+            } },
           { label: '무력으로 대응한다 (켄)', when: G => G.alive.ken, tag: 'death', effects: { morale: -6 },
             trust: { ken: -1, min: -1 }, set: { negotiation_result: 'force' },
             note: '무리는 쫓아냈지만 피를 봤어요',
             then: [
               { say: 'ken', text: '물러서요. 마지막 경고예요' },
-              { say: 'garrett', text: '해보자는 거지?' },
+              { say: 'zed', text: '해보자는 거지?' },
               { fx: 'hit' }, { fx: 'shake', dur: 500 },
-              { kill: 'garrett', cause: '무력 충돌', kind: 'fight', last: '…이 건물, 생각보다 단단하네' },
+              { kill: 'zed', cause: '무력 충돌', kind: 'fight', last: G => (G.flags.zed_jenny ? '제니한테… 라떼 한 잔 못 사줬네' : '…이 건물, 생각보다 단단하네') },
+              { say: 'jenny', text: '…저 사람, 저 때문에 온 거였잖아요', when: G => G.flags.zed_jenny },
               setV('v', ['ken']),
               { kill: G => G.flags.v, cause: '무력 충돌', kind: 'fight' },
               { bg: 'office', cast: 'all' },
@@ -2020,17 +2168,34 @@ window.SFX = (() => {
   });
 
   /* ------------------------------------------------------------------ */
-  const trader = G => (G.alive.garrett ? 'garrett' : 'aaron');
+  const trader = G => (G.alive.zed ? 'zed' : 'aaron');
+  const zedSoft = G => trader(G) === 'zed' && G.flags.zed_jenny && G.alive.jenny;
   S.days.push({
-    day: 11, title: '거래', short: true, choices: 1,
+    day: 11, title: '원정과 거래', key: true, choices: 2,
     env: baseEnv({ zombies: 3 }),
-    preview: '누군가 대피소 위치를 안다고 해요. 공짜는 아니에요',
+    preview: '창고가 바닥을 보여요. 오늘은 밖으로 식량을 구하러 나가야 해요',
     teaser: '라이언은 밤새 녹슨 기타 줄을 하나씩 닦았다',
     steps: [
+      { bg: 'warehouse', cast: G => ['jena', 'adam', 'chad'].filter(id => G.alive[id]) },
+      { narr: '오전 7시. 지하창고' },
+      { say: pick('jena', 'joel', 'christine'), text: '남은 거 다 세봤어요. 이대로면 이틀이에요' },
+      { do: G => { G.stats.food = Math.min(G.stats.food, 30); } },
+      { say: pick('chad', 'ken', 'adam'), text: '건너편 블록에 편의점이랑 마트 창고가 있어요. 낮에 한 번 털어 오죠' },
+      { bg: 'office', cast: 'all' },
+      { choice: {
+        prompt: '식량 원정대를 몇 명 보낼까?',
+        options: [
+          { label: '3명 — 작고 조용하게', hint: '들고 올 수 있는 양이 적어요', set: { squad_n: 3 } },
+          { label: '5명 — 균형 있게', hint: '적당히 들고, 적당히 위험해요', set: { squad_n: 5 } },
+          { label: '7명 — 최대한 많이', hint: '많이 들 수 있지만 줄이 길어 잘 잡혀요', set: { squad_n: 7 } },
+        ] } },
+      { say: 'rick', text: '천천히, 조용히. 상자 챙기면 바로 돌아와요' },
+      { mini: 'food' },
       { bg: 'lobby', cast: G => [trader(G)] },
       { narr: G => (G.flags.negotiation_joined ? '아침. 3층에서 내려온 사람이 조용히 문을 두드렸다' : '아침. 유리문 앞에 남자 하나가 혼자 서 있었다') },
       { say: trader, text: '거래하자. 대피소 진짜 위치, 나는 알아' },
       { say: trader, text: '대신 통조림 한 박스랑 발전기 연료 한 통' },
+      { say: 'zed', text: '…아, 그리고 이건 거래 아니에요. 제니 주세요. 초코바예요', when: G => trader(G) === 'zed' && G.flags.zed_jenny && G.alive.jenny, trust: { jenny: 1 } },
       { say: 'jena', text: '그거 주면 우리 식량 사흘 치가 날아가요' },
       { choice: {
         prompt: '대피소 정보를 사들일까?',
@@ -2043,12 +2208,14 @@ window.SFX = (() => {
             ] },
           { label: '거절한다', tag: 'keep', set: { trade_choice: 'refuse' },
             then: [{ say: trader, text: '후회할걸. 이 동네에서 정보는 통조림보다 비싸' }] },
-          { label: '속인다 (빈 박스를 넘긴다)', hint: '들키면 대가가 커요',
-            branch: () => (Math.random() < .5 ? 'ok' : 'fail'),
+          { label: '속인다 (빈 박스를 넘긴다)', hint: G => (zedSoft(G) ? '제니가 건네면 제드는 열어보지도 않을 거예요' : '아담의 연기(신뢰 5 이상)에 달렸어요. 들키면 대가가 커요'),
+            branch: G => ((zedSoft(G) || (G.alive.adam && G.trust.adam >= 5)) ? 'ok' : 'fail'),
             outcomes: {
               ok: { tag: 'gain', set: { shelter_info: true, trade_choice: 'trick_ok' }, note: '공짜로 정보를 얻었어요',
                 then: [
-                  { say: 'adam', text: '(빈 박스 위에 통조림 하나만 얹어서) 여기요! 꽉 찼어요!' },
+                  { say: 'adam', text: '(빈 박스 위에 통조림 하나만 얹어서) 여기요! 꽉 찼어요!', when: G => !zedSoft(G) },
+                  { say: 'jenny', text: '(박스를 건네며) 제드, 이거…', when: zedSoft },
+                  { say: 'zed', text: '(박스는 보지도 않고) 제, 제니가 직접 줬어…', when: zedSoft },
                   { say: trader, text: '…정수장. 북쪽 배수로. 됐지?' },
                   { narr: '그는 박스를 들고 뛰듯이 사라졌다' },
                 ] },
@@ -2096,12 +2263,30 @@ window.SFX = (() => {
     steps: [
       { if: G => G.flags.ina_latent && G.alive.ina, then: [
         { bg: 'office', env: { time: 'night' }, bgm: 'night', cast: G => [...Game.present(G).filter(i => i !== 'ina'), 'ina:zombie'] },
-        { narr: '새벽 3시. 태이의 비명이 사무실을 갈랐다', sfx: 'scream', fx: 'shake', dur: 500 },
-        { do: G => { G.flags.v = G.alive.tae ? 'tae' : Game.victim(G, ['ina']); } },
-        { kill: G => G.flags.v, cause: '변이한 이나에게 물림', kind: 'bite', last: G => (G.flags.v === 'tae' ? '괜찮아… 이나야, 괜찮아' : '') },
-        { say: pick('ken', 'christine', 'chad', 'rick'), text: '이나! 멈춰요!' },
-        { fx: 'hit' },
-        { kill: 'ina', cause: '잠복 감염 후 변이', kind: 'zombie' },
+        { narr: '새벽 3시. 이나의 눈이 하얗게 변했다. 태이가 그 앞을 막아섰다', sfx: 'growl', fx: 'shake', dur: 500 },
+        { say: 'tae', text: '이나야, 나야. 태이. 알아보겠지?' },
+        { do: G => { G.flags.grd = ['ken', 'bill', 'chad', 'zed', 'jaemin'].find(id => G.alive[id] && !(G.hidden || []).includes(id)) || null; } },
+        { choice: {
+          prompt: '변이한 이나 앞의 태이',
+          options: [
+            { label: G => `${Game.nameOf(G.flags.grd)}에게 태이를 끌어내라고 한다`, when: G => G.flags.grd && G.alive.tae, tag: 'death', trust: { tae: -2 },
+              note: '태이는 살았어요. 대신 이나를 보내야 했어요',
+              then: [
+                { say: G => G.flags.grd, text: '태이, 비켜요! 미안해요!' },
+                { fx: 'hit' },
+                { kill: 'ina', cause: '잠복 감염 후 변이', kind: 'zombie' },
+                { say: 'tae', text: '…놔요. 이제 놔도 돼요' },
+              ] },
+            { label: '태이를 믿고 지켜본다', hint: '이나가 태이를 알아볼지도 몰라요', tag: 'death',
+              note: '이나는 태이를 알아보지 못했어요',
+              then: [
+                { do: G => { G.flags.v = G.alive.tae ? 'tae' : Game.victim(G, ['ina']); } },
+                { kill: G => G.flags.v, cause: '변이한 이나에게 물림', kind: 'bite', last: G => (G.flags.v === 'tae' ? '괜찮아… 이나야, 괜찮아' : '') },
+                { say: pick('ken', 'christine', 'chad', 'rick'), text: '이나! 멈춰요!' },
+                { fx: 'hit' },
+                { kill: 'ina', cause: '잠복 감염 후 변이', kind: 'zombie' },
+              ] },
+          ] } },
         { env: { time: 'day' }, bgm: 'tense' },
       ] },
       { if: G => G.flags.ina_detected && G.alive.ina, then: [
@@ -2109,8 +2294,24 @@ window.SFX = (() => {
         { narr: '새벽. 격리실 유리에 김이 서렸다 사라지기를 반복했다' },
         { say: 'tae', text: '이나야, 나 여기 있어' },
         { say: 'ina', text: '알아. 그래서 안 무서워' },
-        { kill: 'ina', cause: '격리실에서 조용히 변이', kind: 'farewell', last: '태이, 출근 잘해' },
-        { say: 'tae', text: '…대표님. 문 열어줘서, 아니 검사해줘서 고마워요. 마지막까지 볼 수 있었어요', trust: { tae: 2 } },
+        { choice: {
+          prompt: '격리실의 이나. 열이 다시 오르고 있다',
+          options: [
+            { label: '남은 약을 이나에게 쓴다', hint: '약 1개 소모', when: G => (G.flags.medicine || 0) >= 1, tag: 'gain', trust: { tae: 3 },
+              do: G => { G.flags.medicine -= 1; }, note: '이나가 고비를 넘겼어요. 태이가 울면서 웃었어요',
+              then: [
+                { narr: '이틀 뒤, 격리실 문이 열렸다' },
+                { unhide: 'ina' },
+                { say: 'ina', text: '태이, 나 배고파' },
+                { say: 'tae', text: '…라면 세 명이 하나래. 너 다 먹어' },
+              ] },
+            { label: '태이와 함께 마지막을 지킨다', tag: 'death', trust: { tae: 2 },
+              note: '이나와 작별했어요',
+              then: [
+                { kill: 'ina', cause: '격리실에서 조용히 변이', kind: 'farewell', last: '태이, 출근 잘해' },
+                { say: 'tae', text: '…대표님. 검사해줘서 고마워요. 마지막까지 볼 수 있었어요' },
+              ] },
+          ] } },
       ] },
       // 로이 등장 (사무실 안에 있거나, 밖에서 돌아오거나)
       { if: G => !G.alive.roy, then: [{ narr: '로이는 오지 않았다' }], else: [
@@ -2461,14 +2662,14 @@ window.SFX = (() => {
       { choice: {
         prompt: '불길 속에서 무엇을 먼저 구할까?',
         options: [
-          { label: '식량을 구한다', branch: () => (Math.random() < .4 ? 'loss' : 'ok'),
+          { label: '식량을 구한다', hint: G => `손이 10명 이상이면 모두 빠져나와요 (지금 ${Game.present(G).length}명)`, branch: G => (Game.present(G).length >= 10 ? 'ok' : 'loss'),
             outcomes: {
               ok: { tag: 'gain', set: { fire_choice: 'food', server_lost: true, air_off: false, burnt: true }, note: '식량은 지켰어요. 서버가 타서 통신이 끊겼어요',
                 then: [{ say: 'adam', text: '통조림 다 건졌어요! …서버는요?' }, { say: 'phil', text: '…없어요' }] },
               loss: { tag: 'death', set: { fire_choice: 'food', server_lost: true, air_off: false, burnt: true }, note: '식량은 지켰지만 누군가 연기 속에 갇혔어요',
                 then: [setV('v', [], ['bucky', 'adam', 'chad']), { kill: G => G.flags.v, cause: '화재 현장에 갇힘', kind: 'fire' }] },
             } },
-          { label: '서버를 구한다', branch: () => (Math.random() < .35 ? 'loss' : 'ok'),
+          { label: '서버를 구한다', hint: '필이 대표를 믿으면(신뢰 6 이상) 무리하지 않고 물러나요', branch: G => ((!G.alive.phil || G.trust.phil >= 6) ? 'ok' : 'loss'),
             outcomes: {
               ok: { tag: 'keep', effects: { food: -25 }, set: { fire_choice: 'server', burnt: true }, note: '통신은 살렸어요. 식량 일부가 탔어요',
                 then: [{ say: 'phil', text: '서버 살았어요… 라디오도 살았어요' }] },
@@ -2547,6 +2748,26 @@ window.SFX = (() => {
       { say: pick('jena', 'joel', 'claire'), text: '남은 거, 전부 합쳐서 사흘이에요' },
       { bg: 'cctv' },
       { narr: 'CAM 01~04. 화면 네 개가 모두 회색 머리로 가득 찼다' },
+      // 미니게임: 제드의 구출 (제드·제니가 살아 있고, Day 10에 제드가 제니를 알아봤다면)
+      { if: G => G.alive.zed && G.alive.jenny && G.flags.zed_jenny, then: [
+        { narr: 'CAM 02. 1층 로비. 안내데스크 뒤에 누군가 웅크리고 있었다' },
+        { say: pick('jaemin', 'bill', 'rose'), text: '제니예요! 망보다가 로비에 갇혔어요!' },
+        { say: 'zed', text: '(무전) …지금 정문 앞이에요. 제가 들어갈게요' },
+        { say: 'zed', text: '제니, 고개 숙이고 있어요. 금방 가요' },
+        { bg: 'lobby', cast: ['zed'], env: { outsider: true } },
+        { mini: 'rescue' },
+        { env: { outsider: false } },
+        { if: G => G.alive.zed && G.alive.jenny, then: [
+          { bg: 'office', cast: 'all' },
+          { say: 'jenny', text: '…바보예요? 혼자 그 사이를 뚫고 오면 어떡해요' },
+          { say: 'zed', text: '라떼는 못 사줬으니까, 이거라도 해야죠' },
+          { say: 'adam', text: '(훌쩍) 종말 최고의 로맨스다…' },
+        ] },
+        { if: G => !G.alive.zed && G.alive.jenny, then: [
+          { bg: 'office', cast: 'all' },
+          { say: 'jenny', text: '…이름밖에 몰랐는데. 제드라는 이름밖에' },
+        ] },
+      ] },
       { bg: 'office', cast: 'all' },
       { choice: {
         prompt: '마지막 식량',
@@ -2556,13 +2777,13 @@ window.SFX = (() => {
             then: [{ say: 'adam', text: '세 명이 라면 하나… 이번엔 제가 국물 양보할게요' }] },
           { label: '비축한다 (하루 한 끼)', tag: 'gain', set: { ration_extreme: true }, trust: { all: -1 },
             note: '며칠 더 버틸 수 있어요. 대신 서로를 보는 눈빛이 달라졌어요',
-            then: [{ say: pick('luka', 'garrett', 'yeon'), text: '…그 박스, 대표님 방에 있는 거 다 알아요' }] },
-          { label: '야간 원정을 떠난다', hint: '성공하면 대량 확보, 실패하면…', branch: () => (Math.random() < .5 ? 'ok' : 'fail'),
+            then: [{ say: pick('luka', 'zed', 'yeon'), text: '…그 박스, 대표님 방에 있는 거 다 알아요' }] },
+          { label: '야간 원정을 떠난다', hint: G => (G.flags.noon_info ? '로즈의 기록 덕분에 감염자가 멈추는 시간을 알아요' : '감염자의 움직임을 모르면 위험해요 (Day 13 면담이 단서)'), branch: G => (G.flags.noon_info ? 'ok' : 'fail'),
             outcomes: {
               ok: { tag: 'gain', effects: { food: 40 }, note: '원정대가 마트 창고를 통째로 찾아냈어요',
                 then: [{ narr: '새벽 4시. 원정대가 카트 세 대를 밀고 돌아왔다' }, { say: pick('ken', 'chad', 'adam'), text: '쌀이에요. 쌀이 있어요!' }] },
               fail: { tag: 'death', effects: { food: 5 }, note: '원정대가 감염자 무리에 휩쓸렸어요',
-                then: [{ narr: '새벽 4시. 무전기 너머로 달리는 소리, 그리고 비명' }, killN(2, '야간 원정 중 습격', 'night', [], ['ken', 'chad', 'adam', 'garrett'])] },
+                then: [{ narr: '새벽 4시. 무전기 너머로 달리는 소리, 그리고 비명' }, killN(2, '야간 원정 중 습격', 'night', [], ['ken', 'chad', 'adam', 'zed'])] },
             } },
         ] } },
     ],
@@ -2594,8 +2815,8 @@ window.SFX = (() => {
           { label: '후방 방어조를 남기고 본대를 먼저 보낸다', hint: '두 사람이 로비를 지켜요', tag: 'death', set: { exit_plan: 'split' },
             note: '방어조가 로비를 지켰어요. 본대는 21일 새벽에 안전하게 나갈 수 있어요',
             then: [
-              { say: pick('ken', 'chad', 'joel', 'garrett', 'christine'), text: '로비는 제가 맡을게요. 한 명만 더 있으면 돼요' },
-              killN(2, '후방 방어 중 전사', 'fight', [], ['ken', 'chad', 'joel', 'garrett', 'harvey']),
+              { say: pick('ken', 'chad', 'joel', 'zed', 'christine'), text: '로비는 제가 맡을게요. 한 명만 더 있으면 돼요' },
+              killN(2, '후방 방어 중 전사', 'fight', [], ['ken', 'chad', 'joel', 'zed', 'harvey']),
               { narr: '로비 쪽에서 소리가 그쳤다. 오래도록' },
             ] },
           { label: '전원 남는다', tag: 'keep', set: { exit_plan: 'stay' },
@@ -2649,10 +2870,10 @@ window.SFX = (() => {
   };
 
   S.days.push({
-    day: 20, title: '마지막 밤', talk: true, safeNight: true, choices: 2,
+    day: 20, title: '마지막 밤', key: true, talk: true, safeNight: true, choices: 3,
     env: baseEnv({ zombies: 3, time: 'night' }), bgm: 'night',
-    preview: '내일이면 끝나요. 오늘 밤은 길게 이야기해요',
-    teaser: '아무도 잠들지 않았다. 아무도 그게 이상하다고 말하지 않았다',
+    preview: '내일이면 끝나요. 오늘 밤은 길게 이야기해요. …그럴 수 있다면요',
+    teaser: '해가 뜰 때까지 아무도 무기를 내려놓지 않았다',
     steps: [
       { bg: 'office', cast: 'all' },
       { toast: { from: '인사팀 (예약 발송)', text: '[안내] 연말 성과평가 자기평가서 제출 기한: 12월 15일' } },
@@ -2660,7 +2881,19 @@ window.SFX = (() => {
       { say: 'adam', text: '저 올해 S 받을 수 있을 것 같아요. 살아남았잖아요' },
       talkStep, talkStep,
       { bg: 'office', cast: 'all' },
-      { narr: '새벽 5시. 마지막 출근까지 네 시간' },
+      { narr: '새벽 3시. 마지막 출근까지 여섯 시간' },
+      { sfx: 'growl', fx: 'shake', dur: 700 },
+      { bg: 'cctv' },
+      { narr: 'CAM 01~04. 거리의 모든 그림자가 동시에 이쪽으로 고개를 돌렸다' },
+      { say: pick('jaemin', 'bill', 'rose', 'jenny'), text: '…전부 와요. 거리 전체가 이쪽으로 와요!' },
+      { bg: 'lobby', cast: 'all', env: { barricade: true, outsider: true } },
+      { say: 'zed', text: '제니는 뒤에 있어요. 제가 앞에 설게요', when: G => G.alive.jenny && G.joined.includes('zed') },
+      { say: pick('ken', 'bill', 'christine', 'tae'), text: '세 줄로 서요! 바리케이드 하나씩 맡아요!' },
+      { say: 'rick', text: '해 뜰 때까지만. 딱 해 뜰 때까지만 버텨요' },
+      { fx: 'alarm', dur: 1200 },
+      { mini: 'horde' },
+      { bg: 'office', cast: 'all', env: { outsider: false, sky: 'dawn' } },
+      { narr: '새벽 5시. 거리가 조용해졌다. 바리케이드 너머로 해가 떴다' },
     ],
   });
 
@@ -2874,6 +3107,770 @@ window.SFX = (() => {
   };
 })();
 </script>
+<script>/* story/epilogue.js */
+/* =====================================================================
+   엔딩 크레딧 — 생존자 한 사람씩 짧은 후일담
+   out   = 건물을 떠난 엔딩 (1 모두의 귀환 · 3 마지막 퇴근)
+   stay  = 사무실에 남아 공동체를 세운 엔딩 (2)
+   alone = 쓸쓸한 엔딩 (4 홀로 남은 사무실 · 5 벙커 · 6 침묵)
+   함수로 쓰면 G(게임 상태)를 보고 문장을 바꿀 수 있어요
+   ===================================================================== */
+(() => {
+  const S = window.STORY;
+  S.epilogue = {
+    rick: {
+      out: '대피소 야간조 조장이 됐다. 출근 기록은 지금도 매일 쓴다',
+      stay: '「주식회사 출근」 대표. 직원 수는 줄었지만 지각자는 0명',
+      alone: '오늘도 9시 정각에 대표실 불을 켠다',
+    },
+    tae: {
+      out: G => (G.alive.ina ? '이나와 대피소 식당에서 매일 같은 자리에 앉는다' : '대피소 물자 협상을 도맡았다. 한 번도 진 적 없다'),
+      stay: '옆 건물 생존자들과 첫 무역 협정을 맺었다. 조건은 라면 세 박스',
+      alone: '협상할 상대가 사라진 뒤로 말수가 줄었다',
+    },
+    jenny: {
+      out: G => (G.alive.zed ? '제드와 대피소 옥상에서 첫 데이트를 했다. 메뉴는 아이스 바닐라라떼(가루)' : '대피소 망루의 첫 여성 경비대원. 이제 비명 대신 무전을 친다'),
+      stay: G => (G.alive.zed ? '1층에 작은 카페를 열었다. 바리스타는 제드' : '건물 옥상 망루를 맡았다. 겁 많은 사람이 제일 먼저 알아챈다'),
+      alone: '밤마다 혼자 망을 본다. 아무도 오지 않는다',
+    },
+    zed: {
+      out: G => (G.alive.jenny ? '제니 옆자리를 지켰다. 커피 내리는 법을 다시 배우는 중' : '제니의 사원증을 목에 걸고 다닌다'),
+      stay: G => (G.alive.jenny ? '카페 메뉴판 맨 위에 적었다. 「제니 샷 추가」' : '1층 카페 자리를 매일 닦는다. 손님은 없다'),
+      alone: '건물 밖을 떠돈다는 소문만 남았다',
+    },
+    yeon: {
+      out: '종말 예언을 그만두고 날씨 예보를 시작했다. 적중률 71%',
+      stay: '옥상 텃밭 달력을 만들었다. 「종말 후 1년」부터 세기 시작했다',
+      alone: '이번엔 진짜 끝이라고 말했다. 아무도 반박하지 않았다',
+    },
+    min: {
+      out: '대피소 상담실을 열었다. "안 괜찮아도 돼요"가 간판이다',
+      stay: '매주 금요일 "안 괜찮은 사람 모임"을 연다. 매번 만석이다',
+      alone: '안 괜찮다고 말할 사람이 이제 없다',
+    },
+    dante: {
+      out: '대피소 외근팀. 이번엔 계약도 따 왔다',
+      stay: '이웃 건물 영업을 다닌다. 명함은 손으로 쓴다',
+      alone: '회의실 B에서 여전히 혼자 기다린다',
+    },
+    ken: {
+      out: '대피소 정문 경비. 손은 이제 덜 떨린다',
+      stay: '1층 문을 평생 맡겠다는 약속을 지키고 있다',
+      alone: '문 앞에 앉아 있다. 지킬 사람은 없지만',
+    },
+    adam: {
+      out: '대피소 급식 담당. 컵라면 국물은 이제 모두에게 공평하다',
+      stay: '옥상 텃밭의 첫 상추를 몰래 먹었다가 사흘간 설거지를 했다',
+      alone: '마지막 초코파이를 아직 안 먹었다. 아까워서',
+    },
+    hanna: {
+      out: '대피소 라디오 DJ. 볼륨 제한은 여전히 지킨다',
+      stay: '옥상 회식 때만 스피커를 켠다. 볼륨 3',
+      alone: '머릿속 플레이리스트가 1000곡을 넘었다',
+    },
+    rose: {
+      out: '감염자 이동 기록으로 대피소 순찰표를 짰다. 야근 습관은 그대로다',
+      stay: '건물 야간 일지를 쓴다. 365페이지째',
+      alone: '여전히 기록한다. 읽을 사람이 없을 뿐',
+    },
+    ryan: {
+      out: '대피소 첫 공연 관객 214명. 평균 관객 수가 100배 늘었다',
+      stay: '「출근」이라는 노래를 완성했다. 회식 18번이 됐다',
+      alone: '줄이 끊어진 기타를 매일 닦는다',
+    },
+    luka: {
+      out: G => (G.flags.luka_confess ? '아담에게 라면 다섯 개를 갚았다. 이자는 초코파이' : '금연 21일 차에서 멈췄다. 대피소에선 담배를 안 판다'),
+      stay: '옥상에서 담배 대신 상추를 심는다. 생각보다 잘 자란다',
+      alone: '불 꺼진 담배를 문 채 창밖을 본다',
+    },
+    day: {
+      out: '대피소 실종자 명단에서 동생 이름을 찾았다. "생존"이라고 적혀 있었다',
+      stay: '매일 아침 무전기로 동생을 부른다. 언젠가 대답할 거라고 믿는다',
+      alone: '동생에게 쓴 편지가 서랍 하나를 채웠다',
+    },
+    christine: {
+      out: '대피소 운영위원장. 회식 2차 인원 세던 실력이 빛났다',
+      stay: '공동체 인사 담당. 결재 라인은 아직도 셋이다',
+      alone: '줄 세울 사람이 없는 게 가장 힘들다고 했다',
+    },
+    lena: {
+      out: '대피소 의무실 수간호사. 이번엔 아무도 놓치지 않았다',
+      stay: '건물 3층에 진료소를 열었다. 체온계는 그날 그 체온계다',
+      alone: '구급함을 다시 채운다. 쓸 일이 없기를 바라면서',
+    },
+    jaemin: {
+      out: '대피소 CCTV 관제실 소속. 모니터 64개를 혼자 본다',
+      stay: '건물 출입구 여섯 개에 이름을 붙였다. 전부 사람 이름이다',
+      alone: '화면 속 거리를 계속 본다. 움직이는 건 없다',
+    },
+    bill: {
+      out: '대피소 보안팀. 이번엔 원칙이 하나도 안 무섭다',
+      stay: '로비 경비실에 이름표를 붙였다. 「보안 · 빌 · 상시 근무」',
+      alone: '마지막까지 남는 게 원칙이라 마지막까지 남았다',
+    },
+    jena: {
+      out: '대피소 배급 장부를 맡았다. 이번엔 B열도 한 번만 셌다',
+      stay: '공동체 예산 0원을 1년째 흑자로 운영 중이다',
+      alone: '남은 숫자를 세고 또 센다. 줄어들기만 한다',
+    },
+    phil: {
+      out: '대피소 통신 담당. 그날 백업한 서버로 사진 앨범을 복원했다',
+      stay: '옥상 안테나로 다른 생존자 셋과 연결됐다. 매일 밤 교신한다',
+      alone: '라디오 주파수를 돌린다. 지지직 소리만 난다',
+    },
+    roy: { out: '대피소 재무 담당을 자청했다. 숫자는 여전히 거짓말을 안 한다', stay: '공동체 회계를 맡았다. 아무도 그를 믿지 않지만 장부는 정확하다', alone: '벙커 설계도를 다시 그린다. 이번엔 문을 안에서 열 수 있게' },
+    joel: { out: '대피소 물류 창고장. 운영팀은 여전히 그의 말만 듣는다', stay: '지하창고 재고표를 벽에 붙였다. 매일 아침 갱신된다', alone: '창고 열쇠를 아직 차고 다닌다' },
+    aaron: { out: '대피소 규약 초안을 썼다. 제192조는 그대로 넣었다', stay: '정관 초안 47번째 수정본. 아무도 읽지 않는다', alone: '혼자 법정을 연다. 피고도 원고도 본인이다' },
+    ina: { out: '태이와 대피소 식당의 같은 자리. 매일 같은 시간', stay: '격리실이었던 방을 꽃방으로 바꿨다', alone: '태이에게 출근 잘하라는 말을 매일 한다' },
+    hongje: { out: '써니 누나와 대피소 막내 노릇을 한다. 이제 춥지 않다', stay: '소매를 걷고 다닌다. 숨길 게 없어서', alone: '여전히 소매를 내린다' },
+  };
+  // 위에 없는 사람은 부서별 기본 문장
+  S.epilogueDefault = {
+    out: ['대피소에 도착해 처음으로 깊이 잤다', '대피소 명부에 이름을 적었다. 소속: 본사', '새 사원증을 받았다. 사진은 웃고 있었다'],
+    stay: ['옥상 텃밭 당번을 맡았다', '3층 숙소에 자기 방이 생겼다. 문패는 손글씨', '월요일 회의에 한 번도 빠지지 않았다'],
+    alone: ['어디로 갔는지 아무도 모른다', '마지막으로 본 건 비상계단이었다', '이름만 명단에 남았다'],
+  };
+})();
+</script>
+<script>/* js/minigames.js */
+/* =====================================================================
+   미니게임 2종
+   - food  (Day 11) 식량 원정: 원정대를 줄줄이 끌고 상자를 주워 정문으로 돌아오기
+   - horde (Day 20) 대습격 방어: 세 줄 바리케이드로 몰려오는 감염자를 탭해서 쓰러뜨리기
+   결과는 { dead:[{id,cause,kind,last}], effects, note, log } 로 엔진에 돌려줘요
+   ===================================================================== */
+(() => {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const W = 144, H = 216;
+  const R = (c, col, x, y, w, h) => { c.fillStyle = col; c.fillRect(Math.round(x), Math.round(y), w, h); };
+  const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const nm = id => CHARS[id].name;
+  const ZLOOK = [
+    { dept: 'exec', style: 'messy', hair: '#2a2a2a' }, { dept: 'sales', style: 'short', hair: '#3b2a1d' },
+    { dept: 'biz', style: 'long', hair: '#1d1a18' }, { dept: 'dev', style: 'buzz', hair: '#111' },
+    { dept: 'sup', style: 'bob', hair: '#6b3a22' }, { dept: 'exec', style: 'slick', hair: '#2a2a2a', big: true },
+  ];
+
+  /* ---------- 공용 화면 틀 ---------- */
+  function shell(title) {
+    const el = $('#mini');
+    el.innerHTML = `<div class="m-top"><span class="m-title">${title}</span><span class="m-info"></span></div>
+      <div class="m-stage"><canvas width="${W}" height="${H}"></canvas><div class="m-card" hidden></div></div>
+      <div class="m-hint"></div>`;
+    el.hidden = false;
+    const cv = el.querySelector('canvas'), ctx = cv.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+    return { el, cv, ctx, info: el.querySelector('.m-info'), hint: el.querySelector('.m-hint'), card: el.querySelector('.m-card') };
+  }
+  function card(S, html, btn) {
+    return new Promise(res => {
+      S.card.innerHTML = html + `<button class="btn">${btn}</button>`;
+      S.card.hidden = false;
+      S.card.querySelector('.btn').addEventListener('click', () => { SFX.init(); SFX.select(); S.card.hidden = true; res(); });
+    });
+  }
+  function close() { const el = $('#mini'); el.hidden = true; el.innerHTML = ''; }
+  function toWorld(cv, e) {
+    const r = cv.getBoundingClientRect();
+    return { x: (e.clientX - r.left) / r.width * W, y: (e.clientY - r.top) / r.height * H };
+  }
+  function txt(c, s, x, y, col, size = 7, align = 'center') {
+    c.font = `${size}px Galmuri9, Galmuri11, monospace`; c.textAlign = align; c.textBaseline = 'top';
+    c.fillStyle = '#000'; c.fillText(s, x + 1, y + 1); c.fillStyle = col; c.fillText(s, x, y);
+  }
+  const blood = (fx, x, y, n = 10) => { for (let i = 0; i < n; i++) fx.push({ x, y, vx: rnd(-30, 30), vy: rnd(-40, -5), t: 0, col: Math.random() < .6 ? '#a3121e' : '#5a0a10' }); };
+  function drawFx(c, fx, dt) {
+    for (const p of fx) { p.t += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 90 * dt; }
+    for (let i = fx.length - 1; i >= 0; i--) if (fx[i].t > .8) fx.splice(i, 1);
+    fx.forEach(p => R(c, p.col, p.x, p.y, 2, 2));
+  }
+  const ash = Array.from({ length: 26 }, () => ({ x: rnd(0, W), y: rnd(0, H), s: rnd(4, 10) }));
+  function drawAsh(c, dt) { ash.forEach(a => { a.y += a.s * dt; a.x += 2 * dt; if (a.y > H) { a.y = -2; a.x = rnd(0, W); } R(c, 'rgba(200,200,190,.45)', a.x, a.y, 1, 1); }); }
+
+  /* ================================================================== */
+  /*  ① 식량 원정                                                        */
+  /* ================================================================== */
+  const SQUAD_ORDER = ['ken', 'bill', 'chad', 'adam', 'zed', 'luka', 'min', 'harvey', 'joel', 'jaemin', 'sunny', 'hanna', 'tae', 'dante', 'rody', 'bucky', 'gio'];
+  const FOOD_LAST = ['상자… 떨어뜨리지 마요', '먼저 들어가요! 뒤돌아보지 말고!', '라면 냄새가… 났는데', '정문이… 저기 보이는데'];
+
+  async function food(G) {
+    const n = G.flags.squad_n || 5;
+    const pool = Game.present(G).filter(id => id !== 'rick');
+    const rank = id => { const i = SQUAD_ORDER.indexOf(id); return i < 0 ? 50 - G.trust[id] : i; };
+    const squadIds = pool.sort((a, b) => rank(a) - rank(b)).slice(0, n);
+    const S = shell('식량 원정');
+    S.hint.textContent = '화면을 누른 채 움직이면 맨 앞사람이 따라가요';
+
+    // 지도 만들기
+    const door = { x: 58, y: 200, w: 28, h: 16 };
+    const shops = [{ x: 4, y: 0, w: 40, h: 26, name: '편의점', col: '#2f4a6a' }, { x: 52, y: 0, w: 40, h: 26, name: '마트 창고', col: '#5a3a2a' }, { x: 100, y: 0, w: 40, h: 26, name: '약국', col: '#2f5a3a' }];
+    const cars = [{ x: 14, y: 92, w: 22, h: 11, col: '#6a2a2a' }, { x: 104, y: 120, w: 22, h: 11, col: '#2a3a6a' }, { x: 60, y: 66, w: 22, h: 11, col: '#5a5a5a' }];
+    const boxes = [];
+    while (boxes.length < 11) {
+      const b = { x: rnd(10, 134), y: rnd(34, 158) };
+      if (cars.some(c => b.x > c.x - 4 && b.x < c.x + c.w + 4 && b.y > c.y - 4 && b.y < c.y + c.h + 6)) continue;
+      if (boxes.some(o => dist(o, b) < 14)) continue;
+      boxes.push(b);
+    }
+    const zombies = [];
+    const spawnZ = (x, y) => zombies.push({ x, y, d: ZLOOK[zombies.length % ZLOOK.length], tx: x, ty: y, wt: 0, stun: 0, k: zombies.length });
+    while (zombies.length < 6 + n) { const x = rnd(8, 136), y = rnd(30, 150); if (Math.hypot(x - 72, y - 196) > 70) spawnZ(x, y); }
+
+    const squad = squadIds.map((id, i) => ({ id, x: 72, y: 196 + i * 2 }));
+    const trail = [];
+    for (let i = 0; i < 80; i++) trail.push({ x: 72, y: 196 + Math.min(i, 12) * .5 });
+    const dead = [], fx = [];
+    let carried = 0, t = 0, last = performance.now(), target = null, raf = 0, ended = false, sunset = false, spawnT = 0;
+    const LIMIT = 45;
+    const cap = () => squad.length * 2;
+    MINI._s = { squad, boxes, zombies, cap, get carried() { return carried; } };   // 밸런스 점검용
+
+    await card(S, `<div class="m-eyebrow">DAY ${G.day} · MINI GAME</div><h3>식량 원정</h3>
+      <p class="m-sq">원정대 ${squad.length}명 — ${squad.map(m => nm(m.id)).join(', ')}</p>
+      <ul><li>화면을 누른 채 끌면 맨 앞사람이 따라가요</li><li>상자를 주우면 식량이 돼요 (한 명당 2개까지)</li>
+      <li>감염자에게 닿은 사람은 돌아오지 못해요</li><li>아래 <b>정문</b>으로 돌아오면 원정 끝</li>
+      <li>${LIMIT}초가 지나면 해가 지고 감염자가 몰려와요</li></ul>`, '출발');
+
+    if (window.__miniAuto) {   // 자동 테스트용
+      close();
+      const lost = squad.slice(0, Math.ceil(squad.length / 2));
+      return { dead: lost.map(m => ({ id: m.id, cause: '식량 원정 중 습격', kind: 'bite' })), effects: { food: 24 }, note: '(자동) 상자 4개', log: 'Day 11 식량 원정' };
+    }
+
+    const onDown = e => { e.preventDefault(); target = toWorld(S.cv, e); try { S.cv.setPointerCapture(e.pointerId); } catch (er) {} };
+    const onMove = e => { if (target) target = toWorld(S.cv, e); };
+    const onUp = () => { target = null; };
+    const keys = {};
+    const onKey = e => { if (e.key.startsWith('Arrow')) { keys[e.key] = e.type === 'keydown'; e.preventDefault(); } };
+    S.cv.addEventListener('pointerdown', onDown); S.cv.addEventListener('pointermove', onMove);
+    S.cv.addEventListener('pointerup', onUp); S.cv.addEventListener('pointercancel', onUp);
+    document.addEventListener('keydown', onKey); document.addEventListener('keyup', onKey);
+
+    const blocked = (x, y) => cars.some(c => x > c.x && x < c.x + c.w && y > c.y + 2 && y < c.y + c.h + 3) || y < 30;
+
+    const result = await new Promise(resolve => {
+      const finish = why => { if (ended) return; ended = true; cancelAnimationFrame(raf); resolve(why); };
+      const loop = now => {
+        const dt = Math.max(0, Math.min(.05, (now - last) / 1000)); last = now; t += dt;
+        const L = squad[0];
+        // --- 이동 ---
+        if (L) {
+          let dx = 0, dy = 0;
+          if (target) { dx = target.x - L.x; dy = target.y - L.y; }
+          dx += (keys.ArrowRight ? 40 : 0) - (keys.ArrowLeft ? 40 : 0); dy += (keys.ArrowDown ? 40 : 0) - (keys.ArrowUp ? 40 : 0);
+          const d = Math.hypot(dx, dy);
+          if (d > 2) {
+            const sp = 40 * dt, nx = L.x + dx / d * Math.min(sp, d), ny = L.y + dy / d * Math.min(sp, d);
+            if (!blocked(nx, L.y)) L.x = Math.max(5, Math.min(W - 5, nx));
+            if (!blocked(L.x, ny)) L.y = Math.max(32, Math.min(H - 2, ny));
+            const lt = trail[0];
+            if (Math.hypot(L.x - lt.x, L.y - lt.y) >= 1) { trail.unshift({ x: L.x, y: L.y }); if (trail.length > 120) trail.pop(); }
+          }
+          squad.forEach((m, i) => { if (i) { const p = trail[Math.min(trail.length - 1, i * 7)]; m.x = p.x; m.y = p.y; } m.moving = d > 2; });
+        }
+        // --- 상자 줍기 ---
+        for (let i = boxes.length - 1; i >= 0; i--) {
+          if (carried >= cap()) break;
+          if (squad.some(m => dist(m, boxes[i]) < 7)) { boxes.splice(i, 1); carried++; SFX.gain(); }
+        }
+        // --- 감염자 ---
+        if (!sunset && t >= LIMIT) { sunset = true; SFX.alarm(1.2); for (let i = 0; i < 6; i++) spawnZ(rnd(0, W), -4); }
+        spawnT += dt;
+        if (spawnT > (sunset ? .6 : 3.6)) { spawnT = 0; const side = Math.random(); spawnZ(side < .5 ? rnd(0, W) : (side < .75 ? -4 : W + 4), side < .5 ? 28 : rnd(40, 150)); }
+        const chaseR = sunset ? 999 : 32, zs = (sunset ? 30 : 13) + t * .1;
+        for (const z of zombies) {
+          if (z.stun > 0) { z.stun -= dt; continue; }
+          let tgt = null, best = chaseR;
+          squad.forEach(m => { const dd = dist(z, m); if (dd < best) { best = dd; tgt = m; } });
+          let gx, gy, sp;
+          if (tgt) { gx = tgt.x; gy = tgt.y; sp = zs; z.chase = true; }
+          else { z.chase = false; z.wt -= dt; if (z.wt <= 0) { z.wt = rnd(1.5, 3.5); z.tx = rnd(6, 138); z.ty = rnd(34, 170); } gx = z.tx; gy = z.ty; sp = 6; }
+          const dx = gx - z.x, dy = gy - z.y, d = Math.hypot(dx, dy);
+          if (d > .5) { z.x += dx / d * Math.min(sp * dt, d); z.y += dy / d * Math.min(sp * dt, d); }
+          // 물림
+          for (let i = 0; i < squad.length; i++) {
+            const m = squad[i];
+            if (Math.abs(z.x - m.x) < 5 && Math.abs(z.y - m.y) < 5) {
+              squad.splice(i, 1);
+              dead.push({ id: m.id, cause: '식량 원정 중 습격', kind: 'bite', last: FOOD_LAST[dead.length % FOOD_LAST.length] });
+              blood(fx, m.x, m.y - 8, 14); SFX.growl(); SFX.thud();
+              z.stun = 1.6;
+              while (carried > cap()) { carried--; boxes.push({ x: m.x + rnd(-6, 6), y: m.y + rnd(-6, 2) }); }
+              S.cv.classList.remove('m-hit'); void S.cv.offsetWidth; S.cv.classList.add('m-hit');
+              break;
+            }
+          }
+        }
+        // --- 종료 판정 ---
+        if (!squad.length) return finish('wipe');
+        if (t > 3 && L && L.x > door.x && L.x < door.x + door.w && L.y > door.y - 4) return finish('home');
+
+        // --- 그리기 ---
+        const c = S.ctx;
+        R(c, '#34363e', 0, 0, W, H);
+        R(c, '#2a2c33', 0, 26, W, 6);                                   // 보도
+        for (let y = 48; y < 190; y += 38) for (let x = 4; x < W; x += 16) R(c, '#56575c', x, y, 8, 1);   // 차선
+        R(c, '#2a2c33', 0, 186, W, 30);                                 // 우리 건물 앞
+        R(c, '#1a1c24', 0, 196, W, 20);
+        R(c, sunset ? '#ffb070' : '#7acfff', door.x, door.y, door.w, door.h);
+        R(c, '#0b0d14', door.x + 2, door.y + 2, door.w - 4, door.h - 2);
+        txt(c, '정문', 72, 205, '#b6ff3b', 7);
+        shops.forEach(s => { R(c, s.col, s.x, s.y, s.w, s.h); R(c, '#111', s.x + 4, s.y + 12, s.w - 8, 12); txt(c, s.name, s.x + s.w / 2, s.y + 2, '#f4f1e8', 7); });
+        cars.forEach(k => { R(c, k.col, k.x, k.y, k.w, k.h); R(c, '#9ab', k.x + 5, k.y + 2, 12, 3); R(c, '#111', k.x + 2, k.y + k.h, 4, 2); R(c, '#111', k.x + k.w - 6, k.y + k.h, 4, 2); });
+        boxes.forEach(b => { R(c, '#a8783a', b.x - 3, b.y - 3, 7, 5); R(c, '#d8b070', b.x - 3, b.y - 3, 7, 1); R(c, '#6a4a20', b.x, b.y - 3, 1, 5); });
+        const ents = [...zombies.map(z => ({ z, y: z.y })), ...squad.map((m, i) => ({ m, i, y: m.y }))].sort((a, b) => a.y - b.y);
+        const fr = Math.floor(now / 110);
+        ents.forEach(e => {
+          if (e.z) {
+            ART.drawChar(c, e.z.d, Math.round(e.z.x), Math.round(e.z.y), { zombie: true, walk: true, frame: Math.floor(now / (e.z.chase ? 120 : 260)) + e.z.k });
+            if (e.z.chase && !sunset) R(c, '#ff3b4a', e.z.x - 1, e.z.y - 24, 2, 3);
+          } else {
+            ART.drawChar(c, CHARS[e.m.id], Math.round(e.m.x), Math.round(e.m.y), { walk: e.m.moving, frame: fr + e.i });
+            if (e.i === 0) { R(c, '#b6ff3b', e.m.x - 1, e.m.y - 25, 3, 2); R(c, '#b6ff3b', e.m.x, e.m.y - 23, 1, 1); }
+          }
+        });
+        drawFx(c, fx, dt);
+        drawAsh(c, dt);
+        if (sunset) { c.fillStyle = `rgba(80,10,20,${.18 + .1 * Math.sin(now / 200)})`; c.fillRect(0, 0, W, H); }
+        const left = Math.max(0, Math.ceil(LIMIT - t));
+        S.info.innerHTML = `${sunset ? '<b class="m-red">해가 졌다!</b>' : `⏱ ${left}초`} · 📦 ${carried}/${cap()} · 👥 ${squad.length}`;
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    });
+
+    S.cv.removeEventListener('pointerdown', onDown);
+    document.removeEventListener('keydown', onKey); document.removeEventListener('keyup', onKey);
+    const gain = carried * 6;
+    const back = squad.map(m => nm(m.id));
+    await card(S, `<div class="m-eyebrow">${result === 'wipe' ? '원정대 전멸' : '귀환'}</div>
+      <h3>${result === 'wipe' ? '아무도 돌아오지 못했어요' : `상자 ${carried}개를 들고 왔어요`}</h3>
+      <p>식량 <b class="m-lime">+${gain}</b></p>
+      ${back.length ? `<p>돌아온 사람 — ${back.join(', ')}</p>` : ''}
+      ${dead.length ? `<p class="m-red">돌아오지 못한 사람 — ${dead.map(d => nm(d.id)).join(', ')}</p>` : ''}`, '건물로 돌아가기');
+    close();
+    return {
+      dead, effects: { food: gain, morale: dead.length ? -3 : 6, noise: 4 },
+      note: result === 'wipe' ? '원정대가 전멸했어요' : `상자 ${carried}개 · 식량 +${gain}${dead.length ? ` · 희생 ${dead.length}명` : ' · 전원 귀환'}`,
+      log: `Day ${G.day} 식량 원정 (${n}명)`,
+    };
+  }
+
+  /* ================================================================== */
+  /*  ② 대습격 방어                                                      */
+  /* ================================================================== */
+  const LANES = [26, 72, 118];
+  const LANE_NAME = ['왼쪽', '가운데', '오른쪽'];
+  const HORDE_LAST = ['해… 뜨는 거 보고 갈게요', '바리케이드… 안 넘어갔죠?', '다들 내일 출근해요', '여기는 제가 맡았잖아요'];
+  const ABIL = ['ability_ken', 'ability_phil', 'ability_jaemin', 'ability_christine', 'ability_tae', 'ability_jena', 'ability_lena', 'ability_ryan'];
+
+  async function horde(G) {
+    const pool = Game.present(G).filter(id => id !== 'rick').sort((a, b) => G.trust[a] - G.trust[b]);
+    const lanes = [[], [], []];
+    pool.forEach((id, i) => lanes[i % 3].push(id));
+    const shields = [0, 0, 0];
+    let si = 0;
+    ABIL.forEach(k => { if (G.flags[k]) { if (k === 'ability_ken') shields[1] += 2; else { shields[si % 3]++; si++; } } });
+    if (G.flags.barricade) shields.forEach((_, i) => shields[i]++);
+    const S = shell('대습격');
+    S.hint.textContent = '감염자를 탭해서 쓰러뜨리세요. 바리케이드에 닿으면 그 줄의 맨 앞사람이 쓰러져요';
+
+    await card(S, `<div class="m-eyebrow">DAY ${G.day} · MINI GAME</div><h3>해 뜰 때까지 버텨라</h3>
+      <p class="m-sq">방어조 ${pool.length}명이 세 줄로 섰어요</p>
+      <ul><li>내려오는 감염자를 <b>탭</b>하면 쓰러져요 (덩치 큰 놈은 여러 번)</li>
+      <li>바리케이드에 닿으면 그 줄 <b>맨 앞사람</b>이 희생돼요</li>
+      <li>■ 보호막 = 마지막 밤 대화로 얻은 능력${G.flags.barricade ? ' + 1층 바리케이드' : ''} (한 번씩 막아줘요)</li>
+      <li>60초를 버티면 해가 떠요</li></ul>`, '방어 시작');
+
+    if (window.__miniAuto) {
+      close();
+      const lost = [lanes[0][0], lanes[1][0], lanes[2][0]].filter(Boolean);
+      return { dead: lost.map(id => ({ id, cause: '대습격 — 바리케이드에서 전사', kind: 'fight' })), effects: { noise: -20 }, note: '(자동) 대습격', log: 'Day 20 대습격' };
+    }
+
+    const zs = [], fx = [], dead = [], pops = [];
+    MINI._s = { zs, lanes };   // 밸런스 점검용
+    let t = 0, last = performance.now(), raf = 0, spawnT = 0, kills = 0, ended = false, wave = false;
+    const LIMIT = 60;
+    const spawn = () => {
+      const l = Math.floor(Math.random() * 3), r = Math.random();
+      const type = t > 14 && r < .16 ? 'brute' : r < .42 ? 'runner' : 'walker';
+      const T = { walker: { hp: 2, sp: 14 }, runner: { hp: 1, sp: 27 }, brute: { hp: 5, sp: 8 } }[type];
+      zs.push({ l, x: LANES[l] + rnd(-9, 9), y: -4, hp: T.hp, max: T.hp, sp: T.sp * (1 + t / 70), type, flash: 0, k: zs.length,
+        d: type === 'brute' ? { dept: 'exec', style: 'buzz', hair: '#111', big: true, round: true } : ZLOOK[zs.length % ZLOOK.length] });
+    };
+    const onDown = e => {
+      e.preventDefault(); SFX.init();
+      const p = toWorld(S.cv, e);
+      let best = null, bd = 15;
+      zs.forEach(z => { if (z.hp <= 0) return; const d = Math.hypot(z.x - p.x, z.y - 9 - p.y); if (d < bd) { bd = d; best = z; } });
+      pops.push({ x: p.x, y: p.y, t: 0 });
+      if (!best) return;
+      best.hp--; best.flash = .12; best.y -= 4;
+      SFX.thud();
+      if (best.hp <= 0) { kills++; blood(fx, best.x, best.y - 8, 8); }
+    };
+    S.cv.addEventListener('pointerdown', onDown);
+
+    const result = await new Promise(resolve => {
+      const finish = why => { if (ended) return; ended = true; cancelAnimationFrame(raf); resolve(why); };
+      const loop = now => {
+        const dt = Math.max(0, Math.min(.05, (now - last) / 1000)); last = now; t += dt;
+        spawnT += dt;
+        // 희생이 날 때마다 무리가 조금씩 느슨해짐 (쓰러진 사람에게 몰려서)
+        const iv = (t > LIMIT - 10 ? .24 : Math.max(.32, 1.2 - t * .02)) * (1 + dead.length * .08);
+        if (t < LIMIT - 1.5 && spawnT > iv) { spawnT = 0; spawn(); if (t > 20 && Math.random() < .45) spawn(); if (t > 40 && Math.random() < .25) spawn(); }
+        if (!wave && t > 45) { wave = true; for (let i = 0; i < 7; i++) spawn(); SFX.alarm(1); }   // 마지막 대규모 물결
+        for (const z of zs) {
+          if (z.hp <= 0) continue;
+          z.flash -= dt;
+          if (z.stun > 0) { z.stun -= dt; continue; }
+          z.y += z.sp * dt;
+          if (z.y >= 174) {
+            z.hp = 0;
+            const l = z.l;
+            if (shields[l] > 0) { shields[l]--; SFX.beep(); blood(fx, z.x, 170, 5); continue; }
+            let lane = lanes[l].length ? l : [0, 1, 2].sort((a, b) => lanes[b].length - lanes[a].length)[0];
+            const id = lanes[lane].shift();
+            if (id) {
+              dead.push({ id, cause: `대습격 — ${LANE_NAME[l]} 바리케이드에서 전사`, kind: 'fight', last: HORDE_LAST[dead.length % HORDE_LAST.length] });
+              blood(fx, LANES[lane], 196, 16); SFX.growl(); SFX.scream();
+              zs.forEach(o => { if (o.hp > 0 && o.l === l && o.y > 100) o.stun = 2.6; });   // 그 줄의 감염자들이 잠시 멈춤
+              S.cv.classList.remove('m-hit'); void S.cv.offsetWidth; S.cv.classList.add('m-hit');
+            }
+          }
+        }
+        for (let i = zs.length - 1; i >= 0; i--) if (zs[i].hp <= 0) zs.splice(i, 1);
+        if (!lanes.some(l => l.length)) return finish('wipe');
+        if (t >= LIMIT) return finish('dawn');
+
+        const c = S.ctx, k = Math.min(1, t / LIMIT);
+        R(c, '#30323a', 0, 0, W, H);
+        for (let y = 0; y < 170; y += 12) R(c, '#3a3c44', 0, y, W, 1);
+        R(c, '#24262d', 47, 0, 2, 172); R(c, '#24262d', 95, 0, 2, 172);
+        // 하늘빛 (시간이 갈수록 새벽)
+        c.fillStyle = `rgba(255,170,100,${k * .22})`; c.fillRect(0, 0, W, 60);
+        // 바리케이드
+        R(c, '#5a4632', 0, 172, W, 9); for (let x = 2; x < W; x += 12) R(c, '#7a6044', x, 173, 9, 3);
+        LANES.forEach((x, l) => { for (let s = 0; s < shields[l]; s++) R(c, '#b6ff3b', x - 8 + s * 5, 176, 4, 4); });
+        R(c, '#1a1c24', 0, 181, W, 35);
+        // 방어조
+        LANES.forEach((x, l) => {
+          lanes[l].slice(0, 3).reverse().forEach((id, j, arr) => {
+            const back = arr.length - 1 - j;
+            ART.drawChar(c, CHARS[id], x + (back ? (back % 2 ? -7 : 7) : 0), 204 + back * 5, { frame: Math.floor(now / 300) + l });
+          });
+          if (lanes[l][0]) txt(c, nm(lanes[l][0]), x, 182, '#f4f1e8', 7);
+          txt(c, lanes[l].length ? `×${lanes[l].length}` : '비었음', x, 208, lanes[l].length ? '#b6ff3b' : '#ff4d5e', 7);
+        });
+        // 감염자
+        zs.slice().sort((a, b) => a.y - b.y).forEach(z => {
+          ART.drawChar(c, z.d, Math.round(z.x), Math.round(z.y), { zombie: true, walk: true, frame: Math.floor(now / (z.type === 'runner' ? 90 : 200)) + z.k });
+          if (z.flash > 0) { c.fillStyle = 'rgba(255,255,255,.7)'; c.fillRect(z.x - 6, z.y - 20, 12, 20); }
+          if (z.max > 1) { R(c, '#000', z.x - 6, z.y - 24, 12, 2); R(c, '#ff4d5e', z.x - 6, z.y - 24, 12 * z.hp / z.max, 2); }
+        });
+        pops.forEach(p => { p.t += dt; c.strokeStyle = `rgba(182,255,59,${1 - p.t * 4})`; c.strokeRect(p.x - 3 - p.t * 20, p.y - 3 - p.t * 20, 6 + p.t * 40, 6 + p.t * 40); });
+        for (let i = pops.length - 1; i >= 0; i--) if (pops[i].t > .25) pops.splice(i, 1);
+        drawFx(c, fx, dt);
+        drawAsh(c, dt);
+        const left = Math.max(0, Math.ceil(LIMIT - t));
+        S.info.innerHTML = `${left <= 8 ? '<b class="m-red">해 뜨기 직전!</b>' : `☀ ${left}초`} · ☠ ${kills} · 🛡 ${lanes.reduce((a, l) => a + l.length, 0)}명`;
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    });
+
+    S.cv.removeEventListener('pointerdown', onDown);
+    const alive = lanes.flat();
+    await card(S, `<div class="m-eyebrow">${result === 'wipe' ? '방어선 붕괴' : '해가 떴다'}</div>
+      <h3>${result === 'wipe' ? '아무도 서 있지 않았어요' : '버텨냈어요'}</h3>
+      <p>쓰러뜨린 감염자 <b class="m-lime">${kills}</b></p>
+      ${alive.length ? `<p>버텨낸 사람 — ${alive.map(nm).join(', ')}</p>` : ''}
+      ${dead.length ? `<p class="m-red">쓰러진 사람 — ${dead.map(d => nm(d.id)).join(', ')}</p>` : ''}`, '아침을 맞이하기');
+    close();
+    return {
+      dead, effects: { noise: -25, morale: dead.length > 3 ? -6 : 8 },
+      note: `감염자 ${kills}마리를 쓰러뜨렸어요${dead.length ? ` · 희생 ${dead.length}명` : ' · 전원 생존'}`,
+      log: `Day ${G.day} 대습격 방어`,
+    };
+  }
+
+  /* ================================================================== */
+  /*  ③ 돌아온 동료들 (Day 6) — 좀비가 된 동료들이 여섯 개의 입구로 밀고 들어옴  */
+  /* ================================================================== */
+  const ENTRY = ['정문', '비상계단', '엘리베이터', '창문 A', '창문 B', '화물 승강기'];
+  const FLED_Z = ['jane', 'clark', 'karl', 'jessica'];
+  const COL_LAST = ['저 사람… 제인이었어요. 이름표 그대로', '문… 문 좀 같이 밀어줘요', '왜 하필 아는 얼굴이에요', '어제까지 같은 엘리베이터 탔는데'];
+
+  async function colleagues(G) {
+    const pool = Game.present(G).filter(id => id !== 'rick').sort((a, b) => G.trust[a] - G.trust[b]);
+    const slots = ENTRY.map((_, i) => pool[i] || null);
+    const reserve = pool.slice(ENTRY.length);
+    const deadCore = (G.deathsLog || []).map(d => d.id).filter(id => CHARS[id] && !CHARS[id].npc);
+    const faces = [...FLED_Z, ...deadCore];
+    const S = shell('돌아온 동료들');
+    S.hint.textContent = '입구에 나타난 동료를 여러 번 탭해서 밀어내세요. 빨간 막대가 차면 그 입구가 뚫려요';
+
+    await card(S, `<div class="m-eyebrow">DAY ${G.day} · MINI GAME</div><h3>돌아온 동료들</h3>
+      <p class="m-sq">Day 1에 계단으로 뛰어나갔던 사람들이 돌아왔어요. 사원증을 목에 건 채로</p>
+      <ul><li>여섯 입구 중 감염자가 나타난 곳을 <b>탭</b>해서 밀어내요</li>
+      <li>입구 아래 빨간 막대가 끝까지 차면 <b>그 입구를 지키던 사람</b>이 희생돼요</li>
+      <li>40초를 버티면 동료들이 흩어져요</li></ul>`, '문 막기 시작');
+
+    if (window.__miniAuto) {
+      close();
+      const lost = slots.filter(Boolean).slice(0, 2);
+      return { dead: lost.map(id => ({ id, cause: '돌아온 동료들에게 습격', kind: 'bite' })), zombified: FLED_Z.slice(0, 3), effects: { morale: -4 }, note: '(자동) 돌아온 동료들', log: 'Day 6 돌아온 동료들' };
+    }
+
+    const cells = ENTRY.map((name, i) => ({ name, i, x: 4 + (i % 2) * 72, y: 8 + Math.floor(i / 2) * 64, z: null, cool: rnd(.4, 2.2), hitT: 0, breachT: 0 }));
+    const dead = [], fx = [], seen = new Set();
+    MINI._s = { cells };   // 밸런스 점검용
+    let t = 0, last = performance.now(), raf = 0, spawnT = .6, kills = 0, ended = false, fi = 0;
+    const LIMIT = 40;
+    const onDown = e => {
+      e.preventDefault(); SFX.init();
+      const p = toWorld(S.cv, e);
+      const cell = cells.find(c => p.x >= c.x && p.x < c.x + 68 && p.y >= c.y && p.y < c.y + 60);
+      if (!cell || !cell.z) return;
+      cell.z.hp--; cell.z.bar = Math.max(0, cell.z.bar - .1); cell.hitT = .15; SFX.thud();
+      if (cell.z.hp <= 0) { kills++; blood(fx, cell.x + 34, cell.y + 30, 8); cell.z = null; cell.cool = rnd(1.2, 2.6); }
+    };
+    S.cv.addEventListener('pointerdown', onDown);
+
+    const result = await new Promise(resolve => {
+      const finish = why => { if (ended) return; ended = true; cancelAnimationFrame(raf); resolve(why); };
+      const loop = now => {
+        const dt = Math.max(0, Math.min(.05, (now - last) / 1000)); last = now; t += dt;
+        // 등장
+        spawnT -= dt;
+        if (spawnT <= 0 && t < LIMIT - 1) {
+          spawnT = Math.max(.6, 1.5 - t * .03);
+          const free = cells.filter(c => !c.z && c.cool <= 0);
+          if (free.length) {
+            const c = free[Math.floor(Math.random() * free.length)];
+            const id = faces.length ? faces[fi++ % faces.length] : null;
+            if (id && FLED_Z.includes(id)) seen.add(id);
+            c.z = { id, d: id ? CHARS[id] : ZLOOK[fi % ZLOOK.length], hp: id ? 3 : 2, max: id ? 3 : 2, bar: 0, rate: 1 / Math.max(1.9, 3.0 - t * .03) };
+            SFX.growlFar();
+          }
+        }
+        for (const c of cells) {
+          c.cool -= dt; c.hitT -= dt; c.breachT -= dt;
+          if (!c.z) continue;
+          c.z.bar += c.z.rate * dt;
+          if (c.z.bar >= 1) {
+            // 뚫림: 지키던 사람 → 없으면 남은 사람 중 한 명
+            let id = slots[c.i];
+            if (id) slots[c.i] = reserve.shift() || null;
+            else {
+              id = reserve.shift();
+              if (!id) { const k = slots.findIndex(Boolean); if (k >= 0) { id = slots[k]; slots[k] = null; } }
+            }
+            if (id) {
+              dead.push({ id, cause: `돌아온 동료들에게 습격 — ${c.name}`, kind: 'bite', last: COL_LAST[dead.length % COL_LAST.length] });
+              blood(fx, c.x + 34, c.y + 50, 16); SFX.scream(); SFX.growl();
+              S.cv.classList.remove('m-hit'); void S.cv.offsetWidth; S.cv.classList.add('m-hit');
+            }
+            c.z = null; c.cool = 2.5; c.breachT = .6;
+          }
+        }
+        if (!slots.some(Boolean) && !reserve.length) return finish('wipe');
+        if (dead.length >= 4) return finish('retreat');   // 초반이라 넷이 쓰러지면 모두 위층으로 후퇴
+        if (t >= LIMIT) return finish('ok');
+
+        const g = S.ctx;
+        R(g, '#15171f', 0, 0, W, H);
+        cells.forEach(c => {
+          const open = c.z != null;
+          R(g, '#262a36', c.x, c.y, 68, 60);
+          R(g, c.i >= 3 && c.i <= 4 ? '#3a4a5e' : '#4a3a2e', c.x + 10, c.y + 6, 48, 44);      // 문틀/창틀
+          R(g, open ? '#0c0d12' : (c.i >= 3 && c.i <= 4 ? '#6a8aa8' : '#2e2620'), c.x + 13, c.y + 9, 42, 41);
+          if (c.z) {
+            const sh = c.hitT > 0 ? 2 : 0;
+            g.save(); g.translate(c.x + 34 + sh, c.y + 50); g.scale(2, 2);
+            ART.drawChar(g, c.z.d, 0, 0, { zombie: true, frame: Math.floor(now / 260), bob: Math.floor(now / 400) % 2 });
+            g.restore();
+            if (c.hitT > 0) { g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(c.x + 13, c.y + 9, 42, 41); }
+            txt(g, c.z.id ? nm(c.z.id) : '???', c.x + 34, c.y + 10, c.z.id ? '#ffd27a' : '#c9c6bb', 7);
+            R(g, '#000', c.x + 6, c.y + 52, 56, 4); R(g, c.z.bar > .7 ? '#ff2a3a' : '#c8352d', c.x + 6, c.y + 52, 56 * Math.min(1, c.z.bar), 4);
+            for (let h = 0; h < c.z.hp; h++) R(g, '#b6ff3b', c.x + 6 + h * 5, c.y + 3, 3, 3);
+          }
+          if (c.breachT > 0) { g.fillStyle = `rgba(200,0,20,${c.breachT})`; g.fillRect(c.x, c.y, 68, 60); }
+          const who = slots[c.i];
+          txt(g, c.name, c.x + 34, c.y + 57, '#8d93a6', 7);
+          txt(g, who ? nm(who) : '비었음', c.x + 64, c.y + 1, who ? '#f4f1e8' : '#ff4d5e', 7, 'right');
+        });
+        drawFx(g, fx, dt);
+        const left = Math.max(0, Math.ceil(LIMIT - t));
+        S.info.innerHTML = `⏱ ${left}초 · ✋ ${kills} · 🛡 ${slots.filter(Boolean).length + reserve.length}명`;
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    });
+    MINI._s = null;
+    S.cv.removeEventListener('pointerdown', onDown);
+    const zlist = [...seen];
+    await card(S, `<div class="m-eyebrow">${result === 'wipe' ? '방어선 붕괴' : result === 'retreat' ? '후퇴' : '문을 지켰다'}</div>
+      <h3>${result === 'wipe' ? '모든 입구가 뚫렸어요' : result === 'retreat' ? '남은 사람들은 2층으로 올라가 방화문을 잠갔어요' : '동료들이 흩어졌어요'}</h3>
+      <p>밀어낸 횟수 <b class="m-lime">${kills}</b></p>
+      ${zlist.length ? `<p>돌아온 얼굴 — ${zlist.map(nm).join(', ')}</p>` : ''}
+      ${dead.length ? `<p class="m-red">쓰러진 사람 — ${dead.map(d => nm(d.id)).join(', ')}</p>` : '<p class="m-lime">아무도 다치지 않았어요</p>'}`, '문을 걸어 잠그기');
+    close();
+    return {
+      dead, zombified: zlist, effects: { morale: dead.length ? -4 : 4, noise: 6 },
+      note: `${zlist.length ? zlist.map(nm).join(', ') + '… 좀비가 되어 돌아왔어요' : '동료들을 밀어냈어요'}${dead.length ? ` · 희생 ${dead.length}명` : ' · 전원 무사'}`,
+      log: `Day ${G.day} 돌아온 동료들`,
+    };
+  }
+
+  /* ================================================================== */
+  /*  ④ 제드의 구출 (Day 18) — 제드가 감염자를 쓰러뜨리며 로비의 제니에게 달려감 */
+  /* ================================================================== */
+  async function rescue(G) {
+    const S = shell('제드의 구출');
+    S.hint.textContent = '화면을 누른 채 움직이면 제드가 따라가요. 가까운 감염자는 자동으로 공격해요';
+    await card(S, `<div class="m-eyebrow">DAY ${G.day} · MINI GAME</div><h3>제니에게 가는 길</h3>
+      <p class="m-sq">로비 안내데스크 뒤에 제니가 갇혔어요. 제드가 정문으로 뛰어들어요</p>
+      <ul><li>화면을 누른 채 끌면 <b>제드</b>가 따라가요</li>
+      <li>제드는 가까운 감염자를 <b>쇠파이프로 자동 공격</b>해요</li>
+      <li>제드의 체력은 ♥4. 감염자에게 닿으면 줄어요</li>
+      <li>바리케이드가 무너지기 전에 <b>데스크 앞 감염자를 모두 쓰러뜨리면</b> 구출 성공</li></ul>`, '뛰어들기');
+
+    if (window.__miniAuto) {
+      close();
+      return { dead: [], effects: { morale: 8 }, trust: { jenny: 2 }, join: ['zed'], note: '(자동) 제드가 제니를 구했어요', log: 'Day 18 제드의 구출', saved: true };
+    }
+
+    const jenny = { x: 72, y: 196 };
+    const pillars = [{ x: 26, y: 70, w: 10, h: 10 }, { x: 108, y: 70, w: 10, h: 10 }, { x: 26, y: 130, w: 10, h: 10 }, { x: 108, y: 130, w: 10, h: 10 }];
+    const desk = { x: 50, y: 174, w: 44, h: 8 };
+    const zed = { x: 72, y: 14, hp: 4, inv: 0, cd: 0, swing: 0, moving: false };
+    const zs = [], fx = [];
+    const add = (x, y, k) => zs.push({ x, y, hp: 2, d: ZLOOK[zs.length % ZLOOK.length], k: zs.length, wt: 0, tx: x, ty: y, hit: 0, jenny: !!k });
+    for (let i = 0; i < 12; i++) { let x, y; do { x = rnd(8, 136); y = rnd(40, 150); } while (Math.hypot(x - 72, y - 14) < 40); add(x, y); }
+    [16, 44, 72, 100, 128].forEach(x => add(x, 108));   // 가운데를 막아선 무리
+    [[52, 166], [72, 164], [92, 166], [62, 156], [82, 156]].forEach(([x, y]) => add(x, y, true));
+    MINI._s = { zed, zs, jenny };
+    let t = 0, last = performance.now(), raf = 0, ended = false, target = null, bar = 100, spawnT = 0, kills = 0;
+    const onDown = e => { e.preventDefault(); target = toWorld(S.cv, e); try { S.cv.setPointerCapture(e.pointerId); } catch (er) {} };
+    const onMove = e => { if (target) target = toWorld(S.cv, e); };
+    const onUp = () => { target = null; };
+    S.cv.addEventListener('pointerdown', onDown); S.cv.addEventListener('pointermove', onMove);
+    S.cv.addEventListener('pointerup', onUp); S.cv.addEventListener('pointercancel', onUp);
+    const blocked = (x, y) => pillars.some(p => x > p.x - 3 && x < p.x + p.w + 3 && y > p.y && y < p.y + p.h + 4) || (y > desk.y - 1 && x > desk.x - 4 && x < desk.x + desk.w + 4);
+    const front = { x: 72, y: desk.y - 4 };   // 데스크 앞 = 제니에게 닿는 자리
+
+    const result = await new Promise(resolve => {
+      const finish = why => { if (ended) return; ended = true; cancelAnimationFrame(raf); resolve(why); };
+      const loop = now => {
+        const dt = Math.max(0, Math.min(.05, (now - last) / 1000)); last = now; t += dt;
+        // 제드 이동
+        zed.moving = false;
+        if (target) {
+          const dx = target.x - zed.x, dy = target.y - zed.y, d = Math.hypot(dx, dy);
+          if (d > 2) {
+            const sp = 34 * dt, nx = zed.x + dx / d * Math.min(sp, d), ny = zed.y + dy / d * Math.min(sp, d);
+            if (!blocked(nx, zed.y)) zed.x = Math.max(5, Math.min(W - 5, nx));
+            if (!blocked(zed.x, ny)) zed.y = Math.max(10, Math.min(H - 4, ny));
+            zed.moving = true;
+          }
+        }
+        // 자동 공격
+        zed.cd -= dt; zed.swing -= dt; zed.inv -= dt;
+        if (zed.cd <= 0) {
+          const near = zs.filter(z => z.hp > 0 && dist(z, zed) < 19).sort((a, b) => dist(a, zed) - dist(b, zed))[0];
+          if (near) {
+            zed.cd = .3; zed.swing = .15; near.hp--; near.hit = .15;
+            const d = dist(near, zed) || 1; near.x += (near.x - zed.x) / d * 10; near.y += (near.y - zed.y) / d * 10;
+            SFX.thud();
+            if (near.hp <= 0) { kills++; blood(fx, near.x, near.y - 8, 10); }
+          }
+        }
+        // 감염자 증원 (정문·양옆)
+        spawnT += dt;
+        if (spawnT > 2.4) { spawnT = 0; const r = Math.random(); add(r < .4 ? rnd(40, 104) : (r < .7 ? 4 : 140), r < .4 ? 10 : rnd(60, 150)); }
+        // 감염자 움직임
+        let atJenny = 0;
+        for (const z of zs) {
+          if (z.hp <= 0) continue;
+          z.hit -= dt;
+          const dz = dist(z, zed), dj = dist(z, jenny);
+          let gx, gy, sp;
+          if (dz < 30) { gx = zed.x; gy = zed.y; sp = 12; z.jenny = false; }
+          else if (z.jenny || dj < 44) { z.jenny = true; gx = front.x + (z.k % 3 - 1) * 14; gy = front.y; sp = 10; }
+          else { z.wt -= dt; if (z.wt <= 0) { z.wt = rnd(1.5, 3); z.tx = rnd(8, 136); z.ty = rnd(30, 165); } gx = z.tx; gy = z.ty; sp = 6; }
+          const dx = gx - z.x, dy = gy - z.y, d = Math.hypot(dx, dy);
+          if (d > .5) { const nx = z.x + dx / d * Math.min(sp * dt, d), ny = z.y + dy / d * Math.min(sp * dt, d); if (!blocked(nx, ny)) { z.x = nx; z.y = ny; } else z.wt = 0; }
+          if (z.jenny && Math.abs(z.y - front.y) < 6 && Math.abs(z.x - front.x) < 26) atJenny++;
+          if (dz < 5 && zed.inv <= 0) {
+            zed.hp--; zed.inv = 1.5; SFX.growl(); blood(fx, zed.x, zed.y - 8, 10);
+            S.cv.classList.remove('m-hit'); void S.cv.offsetWidth; S.cv.classList.add('m-hit');
+          }
+        }
+        for (let i = zs.length - 1; i >= 0; i--) if (zs[i].hp <= 0) zs.splice(i, 1);
+        bar = Math.max(0, bar - (1 + atJenny * 1.6) * dt);
+        if (zed.hp <= 0) return finish('zed');
+        if (bar <= 0) return finish('jenny');
+        const guarded = zs.some(z => z.hp > 0 && dist(z, front) < 26);
+        if (Math.abs(zed.x - front.x) < 24 && zed.y > front.y - 6 && !guarded) return finish('saved');
+
+        // 그리기
+        const g = S.ctx;
+        R(g, '#2a2c34', 0, 0, W, H);
+        for (let y = 0; y < H; y += 12) for (let x = (y / 12) % 2 ? 0 : 12; x < W; x += 24) R(g, '#30323b', x, y, 12, 12);   // 바닥 타일
+        R(g, '#7acfff', 52, 0, 40, 5); txt(g, '정문', 72, 6, '#8d93a6', 7);
+        pillars.forEach(p => { R(g, '#4a4c56', p.x, p.y - 12, p.w, p.h + 12); R(g, '#5e606c', p.x, p.y - 12, p.w, 2); });
+        R(g, '#6e5a44', desk.x, desk.y, desk.w, desk.h); R(g, '#8a7254', desk.x, desk.y, desk.w, 2);
+        txt(g, '안내데스크', 72, desk.y + 10, '#8d93a6', 7);
+        const ents = [{ y: jenny.y, j: 1 }, { y: zed.y, me: 1 }, ...zs.map(z => ({ y: z.y, z }))].sort((a, b) => a.y - b.y);
+        ents.forEach(e => {
+          if (e.j) { ART.drawChar(g, CHARS.jenny, jenny.x, jenny.y, { frame: Math.floor(now / 200), bob: Math.floor(now / 300) % 2 }); }
+          else if (e.me) {
+            if (zed.inv > 0 && Math.floor(now / 80) % 2) return;
+            ART.drawChar(g, CHARS.zed, Math.round(zed.x), Math.round(zed.y), { walk: zed.moving, frame: Math.floor(now / 100) });
+            R(g, '#b0b4c0', zed.x + (zed.swing > 0 ? 3 : 5), zed.y - (zed.swing > 0 ? 18 : 12), 2, zed.swing > 0 ? 10 : 8);   // 쇠파이프
+          } else {
+            ART.drawChar(g, e.z.d, Math.round(e.z.x), Math.round(e.z.y), { zombie: true, walk: true, frame: Math.floor(now / 180) + e.z.k });
+            if (e.z.hit > 0) { g.fillStyle = 'rgba(255,255,255,.6)'; g.fillRect(e.z.x - 5, e.z.y - 19, 10, 19); }
+          }
+        });
+        drawFx(g, fx, dt);
+        // 제니 바리케이드 막대
+        R(g, '#000', 30, 207, 84, 5); R(g, bar > 35 ? '#f2c94c' : '#ff2a3a', 30, 207, 84 * bar / 100, 5);
+        txt(g, '♡ 제니', 72, 199, '#ffb0c0', 7);
+        S.info.innerHTML = `${'♥'.repeat(zed.hp)}${'♡'.repeat(4 - zed.hp)} · 바리케이드 ${Math.ceil(bar)}% · ☠ ${kills}`;
+        raf = requestAnimationFrame(loop);
+      };
+      raf = requestAnimationFrame(loop);
+    });
+    MINI._s = null;
+    S.cv.removeEventListener('pointerdown', onDown);
+    const dead = [];
+    if (result === 'zed') {
+      dead.push({ id: 'zed', cause: '제니를 구하러 가다 전사', kind: 'fight', last: '제니… 라떼, 다음엔 꼭…' });
+      if (bar < 50) dead.push({ id: 'jenny', cause: '로비에 갇혀 습격', kind: 'bite', last: '제드…?' });
+    }
+    if (result === 'jenny') dead.push({ id: 'jenny', cause: '로비에 갇혀 습격', kind: 'bite', last: '제드, 거의 다 왔는데…' });
+    const msg = { saved: ['구출 성공', '제드가 제니에게 닿았어요'], zed: ['제드가 쓰러졌어요', bar < 50 ? '둘 다 돌아오지 못했어요' : '동료들이 뒤늦게 제니를 꺼냈어요'], jenny: ['바리케이드 붕괴', '제드가 한 걸음 늦었어요'] }[result];
+    await card(S, `<div class="m-eyebrow">${msg[0]}</div><h3>${msg[1]}</h3>
+      <p>쓰러뜨린 감염자 <b class="m-lime">${kills}</b></p>`, '계속');
+    close();
+    return {
+      dead, saved: result === 'saved',
+      effects: result === 'saved' ? { morale: 10 } : { morale: -6 },
+      trust: result === 'saved' ? { jenny: 2 } : null,
+      join: result !== 'zed' ? ['zed'] : null,
+      note: result === 'saved' ? `제드가 감염자 ${kills}마리를 쓰러뜨리고 제니를 구했어요` : msg[1],
+      log: `Day ${G.day} 제드의 구출`,
+    };
+  }
+
+  window.MINI = { food, horde, colleagues, rescue };
+})();
+</script>
 <script>/* js/engine.js */
 /* 게임 엔진 — 스토리 데이터(story/*.js)를 읽어 하루 단위로 진행합니다
    하루 = 아침 브리핑 → 사건(대사·연출·선택) → 밤(습격·피폭·이탈 판정) → 저녁 결산
@@ -2946,7 +3943,8 @@ window.SFX = (() => {
     const pool = present(g).filter(id => id !== 'rick' && !exclude.includes(id));
     const pf = prefer.filter(id => pool.includes(id));
     if (pf.length) return pf[0];
-    return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+    // 무작위가 아니라, 릭을 가장 덜 믿는(= 지금까지의 선택으로 멀어진) 사람이 위험을 떠안음
+    return pool.length ? pool.slice().sort((a, b) => g.trust[a] - g.trust[b] || pool.indexOf(a) - pool.indexOf(b))[0] : null;
   }
   const nameOf = id => (id === 'dante_outside' ? '단테' : CHARS[id] ? CHARS[id].name : '');
   const val = v => (typeof v === 'function' ? v(G) : v);
@@ -3166,10 +4164,12 @@ window.SFX = (() => {
   document.addEventListener('pointerdown', e => {
     SFX.init();
     if (e.target.closest('button')) return;
+    if (closeReview()) return;          // 이전 대사 보기 중이면 닫기만 하고 진행하지 않음
+    if (e.target.closest('#mini')) return;
     fireTap();
   });
   document.addEventListener('keydown', e => {
-    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); SFX.init(); fireTap(); }
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); SFX.init(); if (closeReview()) return; fireTap(); }
     else if (/^[1-6]$/.test(e.key)) { const b = document.querySelectorAll('#choices button')[+e.key - 1]; if (b) b.click(); }
   });
   const waitTap = () => new Promise(r => { tapHandler = r; });
@@ -3180,6 +4180,22 @@ window.SFX = (() => {
       tapHandler = fin; setTimeout(fin, ms);
     });
   }
+
+  /* ================= 이전 대사 보기 =================
+     바로 직전 대사 한 줄만 다시 볼 수 있어요. 선택지가 떠 있을 때는 버튼이 사라져요 */
+  let shownLine = null, prevLine = null;
+  const backBtn = $('#backBtn'), review = $('#review');
+  function setBack(on) { backBtn.hidden = !(on && prevLine); }
+  function openReview() {
+    if (!prevLine) return;
+    review.innerHTML = `<div class="rv-eyebrow">◀ 이전 대사</div>`
+      + (prevLine.sp ? `<div class="rv-sp">${prevLine.sp}</div>` : '')
+      + `<div class="rv-text ${prevLine.sp ? '' : 'narr'}">${prevLine.text}</div><div class="rv-tap">탭하면 돌아가요</div>`;
+    review.hidden = false;
+  }
+  function closeReview() { if (review.hidden) return false; review.hidden = true; review.innerHTML = ''; return true; }
+  backBtn.addEventListener('click', e => { e.stopPropagation(); SFX.init(); SFX.select(); review.hidden ? openReview() : closeReview(); });
+  const esc = s => String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
 
   /* ================= 대화 ================= */
   const voiceOf = id => 300 + (([...id].reduce((a, ch) => a + ch.charCodeAt(0), 0) * 37) % 600);
@@ -3225,12 +4241,16 @@ window.SFX = (() => {
       sp.innerHTML = `<span class="nm" style="--c:${(DEPTS[c.dept] || DEPTS.exec).color}">${c.name}</span><span class="rl">${c.role}</span>`;
       sp.hidden = false;
     } else sp.hidden = true;
+    prevLine = shownLine;
+    shownLine = { sp: c ? sp.innerHTML : '', text: esc(text) };
+    setBack(true);
     await typeText(text, c ? voiceOf(who) : 0);
   }
 
   function presentChoice(prompt, opts) {
     return new Promise(res => {
       scene.speaker = null;
+      closeReview(); setBack(false);   // 선택지에서는 되돌리기 불가
       $('#dialog').className = 'box prompt';
       $('#speaker').hidden = true;
       $('#text').textContent = prompt;
@@ -3352,9 +4372,98 @@ window.SFX = (() => {
       await showResult(r, before, G.deathsLog.slice(d0), tr0 !== JSON.stringify(G.trust));
       if (r.log) G.log.push({ day: G.day, q: fmt(r.log), a: fmt(r.note || ''), tag: r.tag });
     }
+    if (s.mini) await runMini(s.mini);
     if (s.if) await runSteps(s.if(G) ? s.then : s.else);
     if (s.wait) await sleep(s.wait);
     renderHUD();
+  }
+
+  /* ================= 미니게임 =================
+     js/minigames.js 의 MINI[type](G) 가 { dead:[{id,cause,kind,last}], effects, note } 를 돌려줌 */
+  async function runMini(type) {
+    closeReview(); setBack(false);
+    $('#choices').innerHTML = '';
+    const before = { ...G.stats }, d0 = G.deathsLog.length;
+    const prevBgm = G.env.time === 'night' ? 'night' : 'tense';
+    SFX.bgm('tense');
+    const res = await MINI[type](G);
+    applyEffects(res.effects);
+    if (res.trust) applyTrust(res.trust);
+    if (res.join) join(res.join);
+    if (res.saved) G.flags.zed_saved = true;
+    // 좀비가 되어 돌아온 '흩어진 동료' — 사망 화면 없이 명단에만 기록
+    (res.zombified || []).forEach(id => { if (G.alive[id]) { G.alive[id] = false; (G.zlog = G.zlog || {})[id] = `좀비가 되어 돌아옴 (D${G.day})`; } });
+    (res.dead || []).forEach(d => killChar(d.id, d.cause, d.kind, d.last));
+    await flushDeaths();
+    SFX.bgm(prevBgm);
+    const dead = G.deathsLog.slice(d0);
+    await showResult({ tag: dead.length ? 'death' : 'gain', note: res.note }, before, dead, false);
+    G.log.push({ day: G.day, q: res.log || '미니게임', a: res.note || '', tag: dead.length ? 'death' : 'gain' });
+  }
+
+  /* ================= 밤의 위기 =================
+     예전엔 밤마다 확률로 누군가 죽었지만, 이제는 수치가 위험선에 닿으면 '위기 선택지'가 떠요
+     죽음은 플레이어가 그 선택을 했을 때만 일어나요 */
+  const lowestTrust = (ex = []) => present().filter(i => i !== 'rick' && !ex.includes(i)).sort((a, b) => G.trust[a] - G.trust[b])[0];
+  const firstAlive = (ids, ex = []) => ids.find(i => G.alive[i] && present().includes(i) && !ex.includes(i));
+  function crises(onlyFood) {
+    const list = [];
+    const nz = G.stats.noise + (G.flags.defense_weak ? 15 : 0) - (G.flags.barricade ? 10 : 0);
+    if (!onlyFood && nz >= 60) {
+      const guard = firstAlive(['bill', 'ken', 'jaemin', 'chad', 'joel', 'zed', 'harvey']) || lowestTrust();
+      if (guard) list.push({ id: guard, ch: {
+        prompt: `밤 1시. 소음에 끌린 감염자들이 1층 유리문을 두드린다 (소음 ${Math.round(nz)})`,
+        options: [
+          { label: '식량 상자를 반대편 골목에 던져 유인한다', hint: '식량 -12', when: () => G.stats.food >= 12, tag: 'keep', effects: { food: -12, noise: -22 }, note: '감염자들이 상자를 따라 골목으로 몰려갔어요' },
+          { label: '전원을 내리고 다 같이 숨죽인다', hint: '전력 -10 · 사기 -6', when: () => G.stats.power >= 10, tag: 'keep', effects: { power: -10, morale: -6, noise: -18 }, note: '새벽까지 아무도 숨을 크게 쉬지 않았어요' },
+          { label: `${josa(nameOf(guard), '가')} 혼자 1층을 막는다`, hint: '희생이 따를 수 있어요', tag: 'death', effects: { noise: -25 }, kill: [guard], cause: '야간 습격 — 1층 방어', note: '문은 지켰어요' },
+        ] } });
+    }
+    if (!onlyFood && G.stats.rad >= 70) {
+      const sick = lowestTrust();
+      if (sick) list.push({ id: sick, ch: {
+        prompt: `${josa(nameOf(sick), '가')} 피를 토하며 쓰러졌다 (피폭 ${Math.round(G.stats.rad)})`,
+        options: [
+          { label: '아껴둔 약을 쓴다', hint: '약 1개 소모', when: () => (G.flags.medicine || 0) >= 1, tag: 'keep', do: g => { g.flags.medicine -= 1; }, effects: { rad: -8 }, note: `${josa(nameOf(sick), '가')} 고비를 넘겼어요` },
+          { label: '공조를 강제로 최대 가동한다', hint: '전력 -15', when: () => G.stats.power >= 15, tag: 'keep', effects: { power: -15, rad: -15 }, note: '실내 공기가 조금 맑아졌어요' },
+          { label: '회의실에 격리한다', tag: 'death', effects: { rad: -5 }, kill: [sick], cause: '피폭 후 변이', note: '회의실 문이 다시 잠겼어요' },
+        ] } });
+    }
+    if (!onlyFood && G.stats.morale <= 10) {
+      const l = lowestTrust();
+      if (l) list.push({ id: l, ch: {
+        prompt: `밤 3시. ${josa(nameOf(l), '가')} 몰래 짐을 싸고 있다 (사기 ${Math.round(G.stats.morale)})`,
+        options: [
+          { label: '비상 간식을 풀어 다 같이 먹는다', hint: '식량 -8', when: () => G.stats.food >= 8, tag: 'keep', effects: { food: -8, morale: 12 }, note: '오랜만에 다 같이 웃었어요' },
+          { label: '진심으로 붙잡는다', hint: '신뢰가 4 이상이어야 해요', when: () => G.trust[l] >= 4, tag: 'keep', effects: { morale: 6 }, trust: { [l]: 1 }, note: `${josa(nameOf(l), '가')} 가방을 내려놓았어요` },
+          { label: '보내준다', tag: 'death', effects: { morale: 2 }, kill: [l], cause: '밤사이 떠남', note: '아침에 책상 하나가 비어 있었어요' },
+        ] } });
+    }
+    if (G.stats.food <= 0) {
+      const w = lowestTrust();
+      if (w) list.push({ id: w, ch: {
+        prompt: '식량이 바닥났다. 오늘 밤 먹을 게 없다',
+        options: [
+          { label: '마지막 전력으로 지하 냉동고를 연다', hint: '전력 -20', when: () => G.stats.power >= 20, tag: 'keep', effects: { power: -20, food: 12 }, note: '냉동 만두 한 박스를 찾았어요' },
+          { label: '다 같이 굶는다', hint: '사기 -12', tag: 'keep', effects: { morale: -12 }, note: '배고픈 밤이 길었어요' },
+          { label: `${nameOf(w)}의 몫을 줄인다`, tag: 'death', effects: { food: 6 }, kill: [w], cause: '굶주림', note: '아무도 그 얘기를 다시 꺼내지 않았어요' },
+        ] } });
+    }
+    return list;
+  }
+  async function nightCrises(onlyFood) {
+    const list = crises(onlyFood);
+    if (!list.length) return [];
+    const notes = [];
+    G.env.time = 'night'; scene.bg = 'office'; scene.cast = resolveCast('all');
+    SFX.bgm('night');
+    for (const c of list) {
+      if (!G.alive[c.id]) continue;
+      const d0 = G.deathsLog.length;
+      await runChoice(c.ch);
+      notes.push(G.deathsLog.length > d0 ? `밤의 위기 — ${josa(nameOf(c.id), '를')} 잃었어요` : '밤의 위기를 넘겼어요');
+    }
+    return notes;
   }
 
   /* ================= 오버레이 화면 ================= */
@@ -3422,28 +4531,9 @@ window.SFX = (() => {
     for (const k in eff) G.stats[k] = clamp(G.stats[k] + eff[k], 0, 100);
     renderHUD(eff);
 
-    // ---- 밤 판정 ----
-    if (!D.safeNight && day >= 5) {
-      const nz = G.stats.noise + (G.flags.defense_weak ? 15 : 0) - (G.flags.barricade ? 10 : 0);
-      if (nz >= 65 || (nz >= 45 && Math.random() < .35)) {
-        const v = victim();
-        if (v) { killChar(v, '야간 습격', 'night'); notes.push(`소음에 끌린 감염자가 밤에 들이닥쳤어요 (소음 ${Math.round(nz)})`); }
-      }
-      if (G.stats.rad >= 70 && Math.random() < .35) {
-        const v = victim();
-        if (v) { killChar(v, '피폭 후 변이', 'zombie'); notes.push('피폭이 심한 누군가가 열에 시달리다 변했어요'); }
-      }
-      if (G.stats.morale <= 10 && Math.random() < .4) {
-        const v = victim();
-        if (v) { killChar(v, '이탈 — 행방불명', 'gone'); notes.push('누군가 밤사이 몰래 건물을 떠났어요'); }
-      }
-    }
-    if (G.stats.food <= 0) {
-      G.stats.morale = clamp(G.stats.morale - 10, 0, 100);
-      const cand = present().filter(i => i !== 'rick').sort((a, b) => G.trust[a] - G.trust[b]);
-      if (cand[0]) killChar(cand[0], '굶주림', 'starve');
-      notes.push('식량이 바닥났어요. 누군가 아침을 맞지 못했어요');
-    }
+    // ---- 밤의 위기: 수치가 위험선이면 선택지로 결정 (무작위 사망 없음) ----
+    if (!D.safeNight && day >= 5) notes.push(...await nightCrises());
+    else if (G.stats.food <= 0) notes.push(...await nightCrises(true));
     if (G.stats.power <= 0 && G.env.lights) { G.env.lights = false; notes.push('전력이 끊겼어요'); }
     if (G.stats.power <= 0 && !G.flags.air_off) { G.flags.air_off = true; notes.push('전력이 바닥나 공조가 멈췄어요'); }
     renderHUD();
@@ -3488,11 +4578,45 @@ window.SFX = (() => {
     el.hidden = true; el.innerHTML = '';
   }
 
+  /* 엔딩 크레딧: 생존자 한 명씩 후일담이 아래에서 위로 올라감. 탭하면 넘김 */
+  async function playCredits(n) {
+    const kind = n === 1 || n === 3 ? 'out' : n === 2 ? 'stay' : 'alone';
+    const EP = STORY.epilogue || {}, DEF = (STORY.epilogueDefault || {})[kind] || [''];
+    const surv = survivors();
+    const ordered = [...surv.filter(id => id === 'rick'), ...surv.filter(id => id !== 'rick')];
+    const line = (id, i) => { const e = EP[id]; return fmt(e ? val(e[kind]) : DEF[i % DEF.length]); };
+    const fallen = G.deathsLog.map(d => d.id);
+    const el = $('#cine');
+    el.innerHTML = `<div class="cr-wrap"><div class="cr-roll">
+        <div class="cr-title">ENDING ${n}<br><b>${STORY.endings[n].title}</b></div>
+        <div class="cr-sec">살아남은 사람들</div>
+        ${ordered.map((id, i) => `<div class="cr-row"><canvas data-id="${id}" width="16" height="22"></canvas><div>
+          <div class="cr-nm" style="--c:${(DEPTS[CHARS[id].dept] || DEPTS.exec).color}">${CHARS[id].name}<span>${CHARS[id].role}</span></div>
+          <div class="cr-ln">${line(id, i)}</div></div></div>`).join('') || '<div class="cr-ln">아무도 남지 않았다</div>'}
+        ${fallen.length ? `<div class="cr-sec">기억할 이름</div><div class="cr-fallen">${fallen.map(id => CHARS[id].name).join(' · ')}</div>` : ''}
+        <div class="cr-end">지구종말에도 출근합니다<br><span>THANK YOU FOR CLOCKING IN</span></div>
+      </div></div><div class="d-tap">탭하면 넘어가요</div>`;
+    el.hidden = false; el.classList.add('ready', 'credits');
+    el.querySelectorAll('canvas').forEach(c => { const x = c.getContext('2d'); x.imageSmoothingEnabled = false; ART.drawChar(x, CHARS[c.dataset.id], 8, 20, { frame: 0 }); });
+    const roll = el.querySelector('.cr-roll'), box = el.querySelector('.cr-wrap');
+    const dist = roll.offsetHeight + box.offsetHeight;
+    const dur = Math.max(9000, dist * 28);
+    roll.style.transform = `translateY(${box.offsetHeight}px)`;
+    const t0 = performance.now();
+    let raf = 0;
+    const step = now => { const k = Math.min(1, (now - t0) / dur); roll.style.transform = `translateY(${box.offsetHeight - dist * k}px)`; if (k < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+    await waitTapOr(dur + 600);
+    cancelAnimationFrame(raf);
+    el.classList.remove('ready', 'credits'); el.hidden = true; el.innerHTML = '';
+  }
+
   async function showEnding(n) {
     G.over = true; clearSave();
     const E = STORY.endings[n];
     SFX.bgm(E.bgm || 'night');
     if (E.cine) await playCine(n, val(E.cine));
+    await playCredits(n);
     if (E.env) Object.assign(G.env, E.env);
     scene.bg = E.bg || 'office'; scene.cast = resolveCast(E.cast || 'all'); scene.speaker = null;
     $('#choices').innerHTML = ''; $('#dialog').className = 'box narr'; $('#speaker').hidden = true; $('#text').textContent = '';
@@ -3517,7 +4641,7 @@ window.SFX = (() => {
   function showRoster() {
     if (!G) return;
     const status = id => {
-      if (!G.alive[id]) { const d = G.deathsLog.find(x => x.id === id); return ['dead', `☠ ${d ? d.cause : '사망'}`]; }
+      if (!G.alive[id]) { const d = G.deathsLog.find(x => x.id === id); return ['dead', `☠ ${d ? d.cause : (G.zlog && G.zlog[id]) || '사망'}`]; }
       if (!isCore(id) && !G.met.includes(id)) return ['lost', '행방불명'];
       if (!isCore(id) && !G.joined.includes(id)) return ['hid', '다시 떠남'];
       if (G.hidden.includes(id)) return ['hid', '격리 중'];
